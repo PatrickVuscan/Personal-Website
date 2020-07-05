@@ -310,7 +310,7 @@ form {
     @extend .text-button;
     padding: 0.5rem 1rem;
     border-width: 0;
-    background-color: $blue;
+    background-color: $green;
     border-radius: $button-radius;
     outline: none;
     cursor: pointer;
@@ -318,7 +318,7 @@ form {
 
   button[type=submit]:hover {
     @extend .header-button;
-    background-color: $shaded-blue;
+    background-color: $dark-green;
   }
 
   input[type=text] {
@@ -395,7 +395,7 @@ form {
     @extend .text-button;
     padding: 0.5rem 1rem;
     border-width: 0;
-    background-color: $blue;
+    background-color: $green;
     border-radius: $button-radius;
     outline: none;
     cursor: pointer;
@@ -403,7 +403,7 @@ form {
 
   &-button:hover {
     @extend .header-button;
-    background-color: $shaded-blue;
+    background-color: $dark-green;
   }
 
   & > button {
