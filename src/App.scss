@@ -5,6 +5,7 @@ $dark-gray: #7B7B7B;
 $mid-gray: #B6B6B6;
 $light-gray: #EDEDED;
 $green: #2d8000;
+$error-red: #db0000;
 $text-buttons: 24px;
 $text-title: 36px;
 $text-subtitle: 20px;
@@ -169,6 +170,7 @@ input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:enabled,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
@@ -200,11 +202,22 @@ form {
   }
 
   input[type=text] {
-    @extend %formTypedInput
+    @extend %formTypedInput;
+  }
+
+  input[type=textarea] {
+    @extend %formTypedInput;
+    width: auto;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: content-box;
+    border-radius: $icon-radius;
+    background-color: $light-gray;
+    resize: none;
   }
 
   input[type=password] {
-    @extend %formTypedInput
+    @extend %formTypedInput;
   }
 
   label {
@@ -273,11 +286,15 @@ form {
     background-color: $shaded-blue;
   }
 
+  & > button {
+    margin: 0 2rem;
+  }
+
   &-logo {
     @extend .header;
     @extend %text;
     justify-content: normal;
-    margin: 0;
+    margin: 0 auto 0 1rem !important;
     padding: 0 0 0.35rem 0;
     cursor: pointer;
     font-size: 64px;
@@ -286,26 +303,6 @@ form {
     background-color: white;
     border-width: 0;
     outline: none;
-  }
-
-  &-search {
-    margin: 0 0.25rem;
-    width: 25%;
-    background-color: $light-gray;
-    border-radius: $button-radius;
-    border-width: 0;
-    outline: none;
-    font-weight: normal;
-    font-size: $text-buttons;
-    padding: 0.25rem 0.75rem;
-    color:$dark-gray;
-    -webkit-appearance: none;
-  }
-
-  &-search:focus {
-    @extend .header-search;
-    color: $dark-gray;
-    padding: 0.25rem 0.75rem;
   }
 
   > .text-header {
@@ -368,15 +365,26 @@ form {
   }
 }
 
-.signUp {
+.contact {
   @extend .login;
-  width: 30vw;
+  width: 50vw;
   min-width: 250px;
   margin: unset;
   border: none;
 
+  & > .text-title {
+    margin-bottom: 1rem;
+  }
+
+  & > .text-body {
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.5em;
+    white-space: normal;
+  }
+
   & > form input {
-    width: 25vw;
+    width: 25vw !important;
     min-width: 250px;
   }
 }
@@ -470,6 +478,13 @@ form {
     color: black;
   }
 
+  &-error {
+    @extend %text;
+    font-size: $text-body;
+    text-align: center;
+    color: $error-red;
+  }
+
   &-details {
     @extend %text;
     font-size: $text-details;
@@ -496,31 +511,31 @@ form {
 
 }
 
-.welcome {
-  margin: 1rem;
-
-  &-logo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: normal;
-    margin: 0;
-    font-size: 128px;
-    font-weight: bold;
-  }
-
-  &-logo-catch {
-    margin: 0;
-  }
-
-  &-logo-up {
-    margin: 0;
-    color: $blue;
-  }
-
-  & > .text-header {
-    white-space: normal;
-  }
-
-}
+//.welcome {
+//  margin: 1rem;
+//
+//  &-logo {
+//    display: flex;
+//    flex-direction: row;
+//    flex-wrap: nowrap;
+//    align-items: center;
+//    justify-content: normal;
+//    margin: 0;
+//    font-size: 128px;
+//    font-weight: bold;
+//  }
+//
+//  &-logo-catch {
+//    margin: 0;
+//  }
+//
+//  &-logo-up {
+//    margin: 0;
+//    color: $blue;
+//  }
+//
+//  & > .text-header {
+//    white-space: normal;
+//  }
+//
+//}

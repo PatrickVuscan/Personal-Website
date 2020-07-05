@@ -8,6 +8,7 @@ import {
 import Header from './Components/General/Header';
 import Footer from './Components/General/Footer';
 import './App.scss';
+import ContactPage from './Components/ContactPage/ContactPage';
 
 function App() {
   const history = useHistory();
@@ -16,11 +17,8 @@ function App() {
     <Router history={history}>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <div className="App">
-            Testing
-          </div>
-        </Route>
+        <Route exact path="/" />
+        <Route exact path="/contact" render={() => <ContactPage />} />
       </Switch>
       <Footer />
     </Router>

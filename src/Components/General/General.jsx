@@ -25,27 +25,19 @@ Subtitle.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-const Professor = (props) => {
-  return <p className="text-details">{props.children}</p>;
-};
-
-Professor.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const Lecture = (props) => {
-  return <p className="text-details">{props.children}</p>;
-};
-
-Lecture.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
 const Body = (props) => {
   return <p {...props} className="text-body">{props.children}</p>;
 };
 
 Body.propTypes = {
+  children: PropTypes.string.isRequired,
+};
+
+const ErrorMessage = (props) => {
+  return <p {...props} className="text-error">{props.children}</p>;
+};
+
+ErrorMessage.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
@@ -69,9 +61,8 @@ export {
   ContainerTitle,
   Title,
   Subtitle,
-  Professor,
-  Lecture,
   Body,
+  ErrorMessage,
   Details,
   FooterText,
 };

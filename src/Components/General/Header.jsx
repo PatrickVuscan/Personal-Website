@@ -16,13 +16,6 @@ const Header = () => {
       <button
         type="button"
         className="text-header"
-        onClick={() => { history.push('/'); }}
-      >
-        Home
-      </button>
-      <button
-        type="button"
-        className="text-header"
         onClick={() => { history.push('/about'); }}
       >
         About
