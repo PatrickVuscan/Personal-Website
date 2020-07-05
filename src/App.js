@@ -8,7 +8,8 @@ import {
 import Header from './Components/General/Header';
 import Footer from './Components/General/Footer';
 import './App.scss';
-import ContactPage from './Components/ContactPage/ContactPage';
+import Contact from './Components/Contact/Contact';
+import About from './Components/About/About';
 
 function App() {
   const history = useHistory();
@@ -17,8 +18,8 @@ function App() {
     <Router history={history}>
       <Header />
       <Switch>
-        <Route exact path="/" />
-        <Route exact path="/contact" render={() => <ContactPage />} />
+        <Route exact path={['/', '/about']} render={() => <About />} />
+        <Route exact path="/contact" render={() => <Contact />} />
       </Switch>
       <Footer />
     </Router>

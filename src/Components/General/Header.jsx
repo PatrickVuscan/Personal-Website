@@ -1,8 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+// import resume from '../../Constants/resume.pdf';
 
 const Header = () => {
   const history = useHistory();
+
+  const onResumeClick = () => {
+    window.open(`${process.env.PUBLIC_URL}/resume.pdf`);
+  };
 
   return (
     <div className="header">
@@ -11,7 +16,7 @@ const Header = () => {
         className="header-logo"
         onClick={() => { history.push('/'); }}
       >
-        patrick vuscan
+        pv
       </button>
       <button
         type="button"
@@ -23,9 +28,9 @@ const Header = () => {
       <button
         type="button"
         className="text-header"
-        onClick={() => { history.push('/portfolio'); }}
+        onClick={() => { history.push('/experience'); }}
       >
-        Portfolio
+        Experience
       </button>
       <button
         type="button"
@@ -33,6 +38,13 @@ const Header = () => {
         onClick={() => { history.push('/contact'); }}
       >
         Contact
+      </button>
+      <button
+        type="button"
+        className="text-header"
+        onClick={onResumeClick}
+      >
+        Resume
       </button>
     </div>
   );

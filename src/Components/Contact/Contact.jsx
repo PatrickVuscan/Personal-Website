@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../App.scss';
 import { Body, Title, ErrorMessage } from '../General/General';
 
-const ContactPage = () => {
+const Contact = () => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
@@ -107,4 +107,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Contact;
