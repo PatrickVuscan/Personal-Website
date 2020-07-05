@@ -1,0 +1,526 @@
+$blue: #00B2FE;
+$shaded-blue: #009de0;
+$orange: #FE5000;
+$dark-gray: #7B7B7B;
+$mid-gray: #B6B6B6;
+$light-gray: #EDEDED;
+$green: #2d8000;
+$text-buttons: 24px;
+$text-title: 36px;
+$text-subtitle: 20px;
+$text-body: 18px;
+$text-details: 18px;
+$text-footer: 12px;
+$dotdotdot: 50px;
+$button-radius: 30px;
+$icon-radius: 20px;
+$template-height: 200px;
+$note-photo-height: 184px;
+$note-photo-width: 130px;
+
+:root {
+  font-size: 16px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.button-primary {
+  border-radius: 50%;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-for-centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// This holds things within a template so that you can have multiple things follow each other
+%container {
+  display: flex; //or inline-flex?
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start; // or center, or space-between
+  align-items: stretch;
+  margin: 1rem 0 0 0;
+}
+
+%container-list {
+  @extend %container;
+  margin: 2rem auto;
+  flex-direction: column;
+}
+
+.container-list {
+  @extend %container-list;
+
+  &-small {
+    @extend %container-list;
+    width: 32.3%;
+    //margin: 1rem 0 0 1rem;
+  }
+
+  &-medium {
+    @extend %container-list;
+    width: 64.6%;
+    //margin: 1rem 0 0 1rem;
+  }
+
+  &-large {
+    @extend %container-list;
+    width: 96.9%;
+    //margin: auto;
+  }
+
+  &-title {
+    margin: 0 0 0 1rem;
+  }
+
+  &-title-bar {
+    margin: 0;
+    background-color: $blue;
+    border-radius: $button-radius;
+    height: 0.5rem;
+  }
+
+}
+
+%container-row {
+  @extend %container;
+  height: 85vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container-row {
+
+  // This is for the container row where the left side is a third of the screen
+  &-third {
+    @extend %container-row;
+
+    & > .container-row-left {
+      flex: 1;
+    }
+
+    & > .container-row-right {
+      flex: 2;
+    }
+
+  }
+
+  // This is for the container row where the left side is two thirds of the screen
+  &-two-thirds {
+    @extend %container-row;
+
+    & > .container-row-left {
+      flex: 2;
+    }
+
+    & > .container-row-right {
+      flex: 1;
+    }
+
+  }
+
+}
+
+.details-container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // This lets text overflow work
+
+  & > %text {
+    margin: 0;
+  }
+
+  & > .text-details:first-of-type {
+    margin-top: auto;
+  }
+
+}
+
+%formTypedInput {
+  margin: 0 auto;
+  width: auto;
+  background-color: $light-gray;
+  border-radius: $button-radius;
+  border-width: 0;
+  outline: none;
+  font-weight: normal;
+  font-size: $text-body;
+  padding: 0.25rem 0.75rem;
+  color: $dark-gray;
+  -webkit-appearance: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  @extend %formTypedInput;
+  -webkit-text-size-adjust: auto;
+  -webkit-text-fill-color: $dark-gray;
+  -webkit-box-shadow: 0 0 0 1000px $light-gray inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button[type=submit] {
+    @extend .text-button;
+    padding: 0.5rem 1rem;
+    border-width: 0;
+    background-color: $blue;
+    border-radius: $button-radius;
+    outline: none;
+    cursor: pointer;
+  }
+
+  button[type=submit]:hover {
+    @extend .header-button;
+    background-color: $shaded-blue;
+  }
+
+  input[type=text] {
+    @extend %formTypedInput
+  }
+
+  input[type=password] {
+    @extend %formTypedInput
+  }
+
+  label {
+    margin: auto;
+    padding: 1rem 0 0 0;
+
+    & > span {
+      padding: 0 0 0.25rem 0.75rem;
+    }
+
+    &:last-of-type {
+      padding: 1rem 0 1rem 0;
+    }
+  }
+
+  a {
+    @extend .text-footer;
+    margin: 0.5rem 0 0 0;
+    text-align: center !important;
+  }
+
+  > .text-body, .text-title {
+    text-align: center;
+    white-space: normal;
+  }
+
+}
+
+.footer {
+  //margin-top: auto;
+  padding: 2rem 2% 0 2%;
+
+  > .text-footer {
+    white-space: normal;
+  }
+
+  &-bar {
+    margin: 0;
+    background-color: $light-gray;
+    border-radius: $button-radius;
+    height: 0.5rem;
+  }
+
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0 1rem 0;
+
+  &-button {
+    @extend .text-button;
+    padding: 0.5rem 1rem;
+    border-width: 0;
+    background-color: $blue;
+    border-radius: $button-radius;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &-button:hover {
+    @extend .header-button;
+    background-color: $shaded-blue;
+  }
+
+  &-logo {
+    @extend .header;
+    @extend %text;
+    justify-content: normal;
+    margin: 0;
+    padding: 0 0 0.35rem 0;
+    cursor: pointer;
+    font-size: 64px;
+    font-weight: bold;
+    color: $green;
+    background-color: white;
+    border-width: 0;
+    outline: none;
+  }
+
+  &-search {
+    margin: 0 0.25rem;
+    width: 25%;
+    background-color: $light-gray;
+    border-radius: $button-radius;
+    border-width: 0;
+    outline: none;
+    font-weight: normal;
+    font-size: $text-buttons;
+    padding: 0.25rem 0.75rem;
+    color:$dark-gray;
+    -webkit-appearance: none;
+  }
+
+  &-search:focus {
+    @extend .header-search;
+    color: $dark-gray;
+    padding: 0.25rem 0.75rem;
+  }
+
+  > .text-header {
+    background-color: white;
+    border-radius: $button-radius;
+    border-width: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+}
+
+.login {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: $button-radius;
+  border: 1px solid black;
+
+  & > .text-title {
+    margin: 0;
+  }
+
+  & > form input {
+    width: 20vw;
+  }
+}
+
+.photos-container {
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem;
+  background-color: white;
+  border-radius: $icon-radius;
+  width: $note-photo-width;
+  height: $note-photo-height;
+}
+
+.photo-container-grayed {
+  @extend .photo-container;
+  background-color: $mid-gray;
+
+  > p {
+    font-size: $dotdotdot;
+    padding-bottom: $dotdotdot/2 + 2;
+    color: $dark-gray;
+  }
+}
+
+.signUp {
+  @extend .login;
+  width: 30vw;
+  min-width: 250px;
+  margin: unset;
+  border: none;
+
+  & > form input {
+    width: 25vw;
+    min-width: 250px;
+  }
+}
+
+%template {
+  @extend %container;
+  background-color: $light-gray;
+  border-radius: $icon-radius;
+  height: $template-height;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.template {
+
+  &-course {
+    @extend %template;
+    //width: 30%;
+  }
+
+  &-note-small {
+    @extend %template;
+    //width: 60%;
+
+    & > .details-container {
+      flex: 2;
+    }
+
+    & > .photos-container {
+      flex: 3;
+    }
+
+  }
+
+  &-note-large {
+    @extend %template;
+    //width: 90%;
+
+    & > .details-container {
+      flex: 1;
+    }
+
+    & > .photos-container {
+      flex: 1;
+    }
+
+  }
+
+}
+
+%text {
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text {
+
+  &-title {
+    @extend %text;
+    font-size: $text-title;
+    color: black;
+  }
+
+  &-container-title {
+    @extend %text;
+    font-size: $text-title;
+    color: black;
+    font-weight: 900;
+    margin: 0;
+  }
+
+  &-subtitle {
+    @extend %text;
+    font-size: $text-subtitle;
+    color: $dark-gray;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-body {
+    @extend %text;
+    font-size: $text-body;
+    color: black;
+  }
+
+  &-details {
+    @extend %text;
+    font-size: $text-details;
+    color: $mid-gray;
+  }
+
+  &-button {
+    @extend %text;
+    font-size: $text-buttons;
+    color: white;
+  }
+
+  &-header {
+    @extend %text;
+    font-size: $text-buttons;
+    color: black;
+  }
+
+  &-footer {
+    @extend %text;
+    font-size: $text-footer;
+    color: $dark-gray;
+  }
+
+}
+
+.welcome {
+  margin: 1rem;
+
+  &-logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: normal;
+    margin: 0;
+    font-size: 128px;
+    font-weight: bold;
+  }
+
+  &-logo-catch {
+    margin: 0;
+  }
+
+  &-logo-up {
+    margin: 0;
+    color: $blue;
+  }
+
+  & > .text-header {
+    white-space: normal;
+  }
+
+}
