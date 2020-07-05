@@ -8,16 +8,29 @@ const About = () => {
 
   return (
     <div className="container-list">
-      <div className="container-for-centering">
-        <div className="about">
-          <Title>Hello world! My name is</Title>
-          <SuperText>Patrick Vuscan.</SuperText>
-          <SuperText className="text-super-sub">I make ideas happen.</SuperText>
-          <Body>
-            {'I\'m a software developer based in Toronto, Canada, specializing in AI and ML, ' +
-            'but also designing and developing web applications!'}
-          </Body>
+      <div className="container" style={{ justifyContent: 'center' }}>
+        <div className="container-for-centering">
+          <div className="about">
+            <Title>Hello world! My name is</Title>
+            <SuperText>Patrick Vuscan.</SuperText>
+            <SuperText className="text-super-sub">I make ideas happen.</SuperText>
+            <Body>
+              {'I\'m a software developer based in Toronto, Canada, specializing in AI and ML, ' +
+              'but also designing and developing web applications!'}
+            </Body>
+          </div>
         </div>
+        <img
+          src="CAPic.jpeg"
+          alt="Patrick Vuscan in California"
+          style={{
+            margin: 'auto 0',
+            borderRadius: '50%',
+            height: 'auto',
+            maxWidth: '30vw',
+            maxHeight: '30vw',
+          }}
+        />
       </div>
       <div className="container-for-centering">
         <div className="education">
@@ -45,9 +58,9 @@ const About = () => {
             </SuperText>
           </div>
           <Body>
-            {'Selected for the Technology Leadership Initiative, a specialized program that offers ' +
-            'industry integrated advanced learning, tailored leadership training, and industry ' +
-            'internship opportunities.\n\n' +
+            {'Selected for the Technology Leadership Initiative, a specialized program that ' +
+            'offers industry integrated advanced learning, tailored leadership training, and ' +
+            'industry internship opportunities.\n\n' +
             'Developed an MVP for Scotiabank, which you can demo '}
             <a href="https://request-to-pay.herokuapp.com/">here!</a>
           </Body>
@@ -56,6 +69,7 @@ const About = () => {
       <div className="container-for-centering">
         <div className="about-end">
           <button
+            type="button"
             className="about-end-button"
             onClick={() => { history.push('/experience'); }}
           >

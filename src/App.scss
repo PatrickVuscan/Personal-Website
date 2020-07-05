@@ -38,10 +38,9 @@ a {
 }
 
 .about {
-  padding: 15vh 0;
-  width: 70vw;
+  padding: 14vh 0;
   min-width: 250px;
-  margin: unset;
+  margin: 0 5vw 0 0;
   border: none;
 
   & > .text-super {
@@ -98,6 +97,7 @@ a {
 
   & > .text-title {
     margin: 0 0 0 1rem;
+    color: $green;
   }
 
   & > form input {
@@ -132,6 +132,11 @@ a {
   justify-content: flex-start; // or center, or space-between
   align-items: stretch;
   margin: 1rem 0 0 0;
+}
+
+.container {
+  @extend %container;
+  justify-content: space-around;
 }
 
 %container-list {
@@ -599,6 +604,67 @@ form {
     color: $dark-gray;
   }
 
+}
+
+.work-experience {
+  padding: 5vh 5vw;
+  width: 90vw;
+  min-width: 250px;
+  margin: unset;
+  border: none;
+
+  & > .text-super {
+    margin-top: $text-super-sub;
+    margin-bottom: 1rem;
+  }
+
+  & > .text-super-sub {
+    margin-bottom: $text-super-sub;
+  }
+
+  & > .text-title {
+    margin-bottom: 1rem;
+  }
+
+  & > .text-body {
+    margin-bottom: 1rem;
+    line-height: 1.5em;
+    white-space: pre-wrap;
+  }
+}
+
+.project-experience {
+  @extend .work-experience;
+
+  & > %text {
+    color: $light-gray;
+  }
+
+  & > div .text-super {
+    margin-top: $text-super-sub;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  & > div .text-super-sub {
+    margin-bottom: $text-super-sub;
+    margin-block-end: 1rem;
+    color: $light-gray;
+  }
+
+  & > div .text-super-sub:last-of-type {
+    margin-bottom: $text-title;
+  }
+
+  & > .text-title {
+    margin-bottom: 1rem;
+  }
+
+  & > .text-body {
+    margin-bottom: 1rem;
+    line-height: 1.5em;
+    white-space: pre-wrap;
+  }
 }
 
 //.welcome {
