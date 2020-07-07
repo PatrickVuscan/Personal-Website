@@ -30,7 +30,6 @@ $note-photo-width: 130px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 }
 
 a {
@@ -38,10 +37,6 @@ a {
 }
 
 .about {
-  padding: 14vh 0;
-  min-width: 250px;
-  margin: 0 5vw 0 0;
-  border: none;
 
   & > .text-super {
     margin-top: $text-super-sub;
@@ -65,10 +60,11 @@ a {
 }
 
 .about-end {
-  padding: 5vh 0 0 0;
+  margin: 5vh 0 0 0;
 
   &-button {
     @extend .text-button;
+    margin: 0 5vw;
     padding: 0.5rem 1rem;
     border-width: 0;
     background-color: $green;
@@ -96,7 +92,7 @@ a {
   border: none;
 
   & > .text-title {
-    margin: 0 0 0 1rem;
+    text-align: center;
     color: $green;
   }
 
@@ -136,7 +132,8 @@ a {
 
 .container {
   @extend %container;
-  justify-content: space-around;
+  margin: 5vh 5vw;
+  justify-content: space-between;
 }
 
 %container-list {
@@ -151,19 +148,16 @@ a {
   &-small {
     @extend %container-list;
     width: 32.3%;
-    //margin: 1rem 0 0 1rem;
   }
 
   &-medium {
     @extend %container-list;
     width: 64.6%;
-    //margin: 1rem 0 0 1rem;
   }
 
   &-large {
     @extend %container-list;
     width: 96.9%;
-    //margin: auto;
   }
 
   &-title {
@@ -235,11 +229,9 @@ a {
 }
 
 .education {
-  padding: 5vh 0 5vh 15vw;
-  width: 85vw;
   background-color: $green;
   min-width: 250px;
-  margin: unset;
+  padding: 5vh 0 5vh 5vw;
   border: none;
 
   & > %text {
@@ -268,7 +260,6 @@ a {
   }
 
   & > .text-body {
-    width: 50vw;
     margin-bottom: 1rem;
     line-height: 1.5em;
     white-space: pre-wrap;
@@ -276,6 +267,7 @@ a {
 }
 
 %formTypedInput {
+  @extend %text;
   margin: 0 auto;
   width: auto;
   background-color: $light-gray;
@@ -330,15 +322,15 @@ form {
     @extend %formTypedInput;
   }
 
-  input[type=textarea] {
+  textarea {
     @extend %formTypedInput;
+    white-space: pre-wrap;
     width: auto;
     height: 150px;
     padding: 12px 20px;
     box-sizing: content-box;
     border-radius: $icon-radius;
     background-color: $light-gray;
-    resize: none;
   }
 
   input[type=password] {
@@ -588,6 +580,7 @@ form {
 
   &-button {
     @extend %text;
+    text-align: center;
     font-size: $text-buttons;
     color: white;
   }

@@ -81,10 +81,6 @@ FooterText.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
 };
 
-FooterText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
-};
-
 export {
   ContainerTitle,
   SuperText,

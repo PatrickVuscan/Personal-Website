@@ -13,7 +13,7 @@ const Contact = () => {
   const [messageError, setMessageError] = useState(false);
 
   const validateEmail = () => {
-    const valid = email.length > 0 && /@.*\./.test(email);
+    const valid = email.length > 0 && /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/.test(email);
     setEmailError(!valid);
     return valid;
   };
@@ -26,7 +26,8 @@ const Contact = () => {
   };
 
   const validateMessage = () => {
-    const valid = message.length > 0 && /^[a-zA-Z @.-/\\]+$/.test(message);
+    const valid = message.length > 0 &&
+      /^[\sa-zA-Z @.:;,?#$%^&*_+=~`"'|(){}\-/\\[\]]+$/.test(message);
     setMessageError(!valid);
     return valid;
   };
@@ -59,7 +60,6 @@ const Contact = () => {
               <input
                 id="email"
                 type="text"
-                // value={email}
                 onBlur={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -72,7 +72,6 @@ const Contact = () => {
               <input
                 id="phoneNumber"
                 type="text"
-                // value={phoneNumber}
                 onBlur={(e) => {
                   setPhoneNumber(e.target.value);
                 }}
@@ -82,10 +81,8 @@ const Contact = () => {
             { phoneNumberError && <ErrorMessage>Please enter a valid phone number!</ErrorMessage>}
             <label className="text-subtitle" htmlFor="message">
               <span>Message</span>
-              <input
+              <textarea
                 id="message"
-                type="textarea"
-                // value={message}
                 onBlur={(e) => {
                   setMessage(e.target.value);
                 }}
@@ -100,7 +97,7 @@ const Contact = () => {
               {'Sent! I\'ll get back to you soon :)'}
             </Body>
             )
-}
+          }
         </div>
       </div>
     </>

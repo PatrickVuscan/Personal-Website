@@ -8,8 +8,10 @@ const About = () => {
 
   return (
     <div className="container-list">
-      <div className="container" style={{ justifyContent: 'center' }}>
-        <div className="container-for-centering">
+      <div className="container">
+        <div
+          className="container-for-centering"
+        >
           <div className="about">
             <Title>Hello world! My name is</Title>
             <SuperText>Patrick Vuscan.</SuperText>
@@ -20,19 +22,26 @@ const About = () => {
             </Body>
           </div>
         </div>
-        <img
-          src="CAPic.jpeg"
-          alt="Patrick Vuscan in California"
-          style={{
-            margin: 'auto 0',
-            borderRadius: '50%',
-            height: 'auto',
-            maxWidth: '30vw',
-            maxHeight: '30vw',
-          }}
-        />
+        <div
+          className="container-for-centering"
+        >
+          <img
+            src="CAPic.jpeg"
+            alt="Patrick Vuscan in California"
+            style={{
+              margin: 'auto 0',
+              borderRadius: '50%',
+              height: 'auto',
+              maxWidth: '100%',
+              maxHeight: '30vw',
+            }}
+          />
+        </div>
       </div>
-      <div className="container-for-centering">
+      <div
+        className="container-for-centering"
+        style={{ width: '100vw' }}
+      >
         <div className="education">
           <Title>Education</Title>
           <div>
