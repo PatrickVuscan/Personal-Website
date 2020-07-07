@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../App.scss';
+import firebase from '../../firebase';
 import { Body, Title, ErrorMessage } from '../General/General';
 
 const Contact = () => {
@@ -26,16 +27,25 @@ const Contact = () => {
   };
 
   const validateMessage = () => {
-    const valid = message.length > 0 &&
-      /^[\sa-zA-Z @.:;,?#$%^&*_+=~`"'|(){}\-/\\[\]]+$/.test(message);
+    const valid = message.length > 0;
+    // /^[\sa-zA-Z @.:;,?#$%^&*_+=~`"'|(){}\-/\\[\]]+$/.test(message);
     setMessageError(!valid);
     return valid;
+  };
+
+  const submitToDB = () => {
+    firebase.database().ref('contacts').push({
+      email,
+      phoneNumber: (phoneNumber) || null,
+      message,
+    });
   };
 
   const handleSubmitAccountInfo = (event) => {
     event.preventDefault();
     if (validateEmail() && validatePhoneNumber() && validateMessage()) {
       setSubmitted(true);
+      submitToDB();
       return true;
     }
     validateEmail();
