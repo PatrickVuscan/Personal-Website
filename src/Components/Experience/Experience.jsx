@@ -15,8 +15,16 @@ const Experience = () => {
       <div className="container-for-centering">
         <div className="work-experience">
           <Title>Work Experience</Title>
+          <SuperText>{'Scotiabank\'s Digital Factory'}</SuperText>
+          <SuperText className="text-super-sub">
+            Software Developer
+          </SuperText>
+          <Body>
+            {'Developed react web applications for Scotiabank\'s web and native campaign and ' +
+            'offer presentation.'}
+          </Body>
           <SuperText>catchUp</SuperText>
-          <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
+          <SuperText className="text-super-sub">
             Software Developer
           </SuperText>
           <Body>
@@ -25,16 +33,8 @@ const Experience = () => {
             'CSS and SASS for the front-end. For the back-end, used technologies such as ' +
             'NodeJS and ExpressJS to create an API which interacts with an MSSQL database.'}
           </Body>
-          <SuperText>{'Scotiabank\'s Digital Factory'}</SuperText>
-          <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
-            Software Developer
-          </SuperText>
-          <Body>
-            {'Developed react web applications for Scotiabank\'s web and native campaign and ' +
-            'offer presentation.'}
-          </Body>
           <SuperText>NexJ Health Inc.</SuperText>
-          <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
+          <SuperText className="text-super-sub">
             Software Developer
           </SuperText>
           <Body>
@@ -53,7 +53,7 @@ const Experience = () => {
           <Title>Projects</Title>
           <div>
             <SuperText>Scotiabank MVP Web Application</SuperText>
-            <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
+            <SuperText className="text-super-sub">
               Technology Leaderhip Initiatve x Scotiabank Collaboration
             </SuperText>
           </div>
@@ -73,14 +73,17 @@ const Experience = () => {
           </Body>
           <div>
             <SuperText>This Website!</SuperText>
-            <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
+            <SuperText className="text-super-sub">
               Stand alone project
             </SuperText>
           </div>
           <Body>
             {'Created this website from the ground up, using technologies such as React, React ' +
             'Router, all of the latest React Hooks, entirely custom CSS, and Firebase for the ' +
-            'back-end.'}
+            'back-end.\n\n'}
+            {'You can also see the '}
+            <a href="https://github.com/PatrickVuscan/personal-website">repo here</a>
+            {' too!'}
           </Body>
         </div>
       </div>

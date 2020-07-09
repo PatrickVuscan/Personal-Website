@@ -7,20 +7,30 @@ $light-gray: #EDEDED;
 $green: #2d8000;
 $dark-green: #236300;
 $error-red: #db0000;
-$text-buttons: 24px;
-$text-super: 64px;
-$text-super-sub: 56px;
-$text-title: 36px;
-$text-subtitle: 20px;
-$text-body: 18px;
-$text-details: 18px;
-$text-footer: 12px;
 $dotdotdot: 50px;
 $button-radius: 30px;
 $icon-radius: 20px;
 $template-height: 200px;
 $note-photo-height: 184px;
 $note-photo-width: 130px;
+
+// Desktop Text Sizes
+$text-buttons: 24px;
+$text-super: 64px;
+$text-super-sub: 48px;
+$text-title: 36px;
+$text-subtitle: 18px;
+$text-body: 18px;
+$text-footer: 12px;
+
+// Mobile Text Sizes
+$text-buttons-m: 16px;
+$text-super-m: 32px;
+$text-super-sub-m: 26px;
+$text-title-m: 26px;
+$text-subtitle-m: 18px;
+$text-body-m: 18px;
+$text-footer-m: 14px;
 
 :root {
   font-size: 16px;
@@ -55,7 +65,6 @@ a {
     width: 50vw;
     margin-bottom: 1rem;
     line-height: 1.5em;
-    white-space: pre-wrap;
   }
 }
 
@@ -79,6 +88,21 @@ a {
   }
 }
 
+.header-button {
+  @extend .text-button;
+  padding: 0.5rem 1rem;
+  border-width: 0;
+  background-color: $green;
+  border-radius: $button-radius;
+  outline: none;
+  cursor: pointer;
+}
+
+.header-hover {
+  @extend .header-button;
+  background-color: $dark-green;
+}
+
 .contact {
   margin: 1rem;
   padding: 1rem;
@@ -96,8 +120,8 @@ a {
     color: $green;
   }
 
-  & > form input {
-    width: 25vw;
+  & > form input, select, textarea {
+    width: 40vw;
     min-width: 250px;
   }
 
@@ -105,7 +129,6 @@ a {
     margin-bottom: 1rem;
     text-align: center;
     line-height: 1.5em;
-    white-space: normal;
   }
 }
 
@@ -231,7 +254,7 @@ a {
 .education {
   background-color: $green;
   min-width: 250px;
-  padding: 5vh 0 5vh 5vw;
+  padding: 5vh 5vw;
   border: none;
 
   & > %text {
@@ -252,7 +275,6 @@ a {
 
   & > div .text-super-sub:last-of-type {
     margin-bottom: $text-title;
-    padding-left: 0.5vw;
   }
 
   & > .text-title {
@@ -262,14 +284,12 @@ a {
   & > .text-body {
     margin-bottom: 1rem;
     line-height: 1.5em;
-    white-space: pre-wrap;
   }
 }
 
 %formTypedInput {
   @extend %text;
   margin: 0 auto;
-  width: auto;
   background-color: $light-gray;
   border-radius: $button-radius;
   border-width: 0;
@@ -279,6 +299,7 @@ a {
   padding: 0.25rem 0.75rem;
   color: $dark-gray;
   -webkit-appearance: none;
+  box-sizing: border-box;
 }
 
 input:-webkit-autofill,
@@ -324,11 +345,9 @@ form {
 
   textarea {
     @extend %formTypedInput;
-    white-space: pre-wrap;
-    width: auto;
     height: 150px;
     padding: 12px 20px;
-    box-sizing: content-box;
+    box-sizing: border-box;
     border-radius: $icon-radius;
     background-color: $light-gray;
   }
@@ -358,18 +377,16 @@ form {
 
   > .text-body, .text-title {
     text-align: center;
-    white-space: normal;
   }
 
+  select {
+    @extend %formTypedInput;
+    appearance: auto;
+  }
 }
 
 .footer {
-  //margin-top: auto;
   padding: 2rem 2% 0 2%;
-
-  > .text-footer {
-    white-space: normal;
-  }
 
   &-bar {
     margin: 0;
@@ -386,32 +403,22 @@ form {
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
+  //display: grid;
+  //grid-template-areas: "logo nav";
   margin: 0 0 1rem 0;
-
-  &-button {
-    @extend .text-button;
-    padding: 0.5rem 1rem;
-    border-width: 0;
-    background-color: $green;
-    border-radius: $button-radius;
-    outline: none;
-    cursor: pointer;
-  }
-
-  &-button:hover {
-    @extend .header-button;
-    background-color: $dark-green;
-  }
 
   & > button {
     margin: 0 1rem;
   }
+  & > button:hover {
+    transform: scale(1.2);
+  }
 
-  &-logo {
+  & > button.header-logo {
     @extend .header;
     @extend %text;
     justify-content: normal;
-    margin: 0 auto 0 2rem !important;
+    margin: 0 auto 0 2rem;
     padding: 0 0 0.35rem 0;
     cursor: pointer;
     font-size: 64px;
@@ -420,9 +427,11 @@ form {
     background-color: white;
     border-width: 0;
     outline: none;
+    //grid-area: logo;
+    //height: 72px;
   }
 
-  > .text-header {
+  & > .text-header {
     background-color: white;
     border-radius: $button-radius;
     border-width: 0;
@@ -430,37 +439,43 @@ form {
     cursor: pointer;
   }
 
-}
-
-.photos-container {
-  margin: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-
-.photo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0.5rem;
-  background-color: white;
-  border-radius: $icon-radius;
-  width: $note-photo-width;
-  height: $note-photo-height;
-}
-
-.photo-container-grayed {
-  @extend .photo-container;
-  background-color: $mid-gray;
-
-  > p {
-    font-size: $dotdotdot;
-    padding-bottom: $dotdotdot/2 + 2;
-    color: $dark-gray;
+  & > nav {
+    @extend .header;
+    margin: 0;
+    // Test
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-items: center;
   }
+
+  & > .burger {
+    @extend .text-header;
+    font-size: $text-title !important;
+    color: $green !important;
+    // Test
+    grid-area: burger;
+    justify-self: end;
+    transition: 0.1s;
+  }
+
+  & > .burger:active {
+     transform: scale(1.2);
+   }
+
+  & > .Nav {
+
+  }
+
+}
+
+.profile-picture {
+  margin: auto 0;
+  border-radius: 50%;
+  height: auto;
+  max-width: 100%;
+  max-height: 30vw;
 }
 
 %template {
@@ -472,47 +487,10 @@ form {
   cursor: pointer;
 }
 
-.template {
-
-  &-course {
-    @extend %template;
-    //width: 30%;
-  }
-
-  &-note-small {
-    @extend %template;
-    //width: 60%;
-
-    & > .details-container {
-      flex: 2;
-    }
-
-    & > .photos-container {
-      flex: 3;
-    }
-
-  }
-
-  &-note-large {
-    @extend %template;
-    //width: 90%;
-
-    & > .details-container {
-      flex: 1;
-    }
-
-    & > .photos-container {
-      flex: 1;
-    }
-
-  }
-
-}
-
 %text {
   font-weight: bold;
   text-align: left;
-  //white-space: nowrap;
+  white-space: pre-line;
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -572,12 +550,6 @@ form {
     color: $error-red;
   }
 
-  &-details {
-    @extend %text;
-    font-size: $text-details;
-    color: $mid-gray;
-  }
-
   &-button {
     @extend %text;
     text-align: center;
@@ -595,6 +567,131 @@ form {
     @extend %text;
     font-size: $text-footer;
     color: $dark-gray;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .about {
+
+    & > %text {
+      text-align: center;
+    }
+
+    & > .text-super {
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    & > .text-super-sub {
+      margin-bottom: $text-title;
+    }
+
+    & > .text-body {
+      width: unset;
+    }
+
+  }
+
+  .container {
+    margin: 0 5vw 5vh 5vw;
+  }
+
+  .header {
+    display: grid;
+    grid-template-areas: "logo burger" "nav nav";
+    justify-content: normal;
+
+    & > button.header-logo {
+      margin: 0 auto 0 1rem;
+      grid-area: logo;
+      height: 84px;
+    }
+
+    & > button.text-header {
+      background-color: $green;
+      color: white;
+      font-size: $text-body-m;
+    }
+
+    .Nav {
+      display: grid;
+      grid-area: nav;
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: none;
+      grid-row-gap: 1rem;
+
+      padding: 1rem 0;
+      background: $green;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    & > button.burger {
+      display: inline;
+      grid-area: burger;
+      background-color: white;
+    }
+
+  }
+
+  .profile-picture {
+    margin: 1rem 0;
+    border-radius: 50%;
+    height: auto;
+    max-width: 100%;
+    max-height: 90vw;
+  }
+
+  .text {
+
+    &-super {
+      font-size: $text-super-m;
+    }
+
+    &-super-sub {
+      font-size: $text-super-sub-m;
+    }
+
+    &-title {
+      font-size: $text-title-m;
+    }
+
+    &-container-title {
+      font-size: $text-title-m;
+    }
+
+    &-subtitle {
+      font-size: $text-subtitle-m;
+    }
+
+    &-body {
+      font-size: $text-body-m;
+    }
+
+    &-error {
+      font-size: $text-body-m;
+    }
+
+    &-button {
+      font-size: $text-buttons-m;
+    }
+
+    &-header {
+      font-size: $text-buttons-m;
+    }
+
+    &-footer {
+      font-size: $text-footer-m;
+    }
+
+  }
+
+  body .work-experience {
+    padding: 0 5vw 5vh 5vw;
   }
 
 }
@@ -603,7 +700,6 @@ form {
   padding: 5vh 5vw;
   width: 90vw;
   min-width: 250px;
-  margin: unset;
   border: none;
 
   & > .text-super {
@@ -622,7 +718,6 @@ form {
   & > .text-body {
     margin-bottom: 1rem;
     line-height: 1.5em;
-    white-space: pre-wrap;
   }
 }
 
@@ -656,35 +751,5 @@ form {
   & > .text-body {
     margin-bottom: 1rem;
     line-height: 1.5em;
-    white-space: pre-wrap;
   }
 }
-
-//.welcome {
-//  margin: 1rem;
-//
-//  &-logo {
-//    display: flex;
-//    flex-direction: row;
-//    flex-wrap: nowrap;
-//    align-items: center;
-//    justify-content: normal;
-//    margin: 0;
-//    font-size: 128px;
-//    font-weight: bold;
-//  }
-//
-//  &-logo-catch {
-//    margin: 0;
-//  }
-//
-//  &-logo-up {
-//    margin: 0;
-//    color: $blue;
-//  }
-//
-//  & > .text-header {
-//    white-space: normal;
-//  }
-//
-//}

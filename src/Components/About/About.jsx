@@ -1,20 +1,33 @@
 import React from 'react';
 import '../../App.scss';
 import { useHistory } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Body, Title, SuperText } from '../General/General';
 
 const About = () => {
   const history = useHistory();
+  const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
 
   return (
     <div className="container-list">
       <div className="container">
-        <div
-          className="container-for-centering"
-        >
+        <div className="container-for-centering">
           <div className="about">
-            <Title>Hello world! My name is</Title>
+            <Title>
+              Hello world!{isMobile ? '\n' : ''} My name is
+            </Title>
             <SuperText>Patrick Vuscan.</SuperText>
+            { isMobile && (
+              <div
+                className="container-for-centering"
+              >
+                <img
+                  src="CAPic.jpeg"
+                  alt="Patrick Vuscan in California"
+                  className="profile-picture"
+                />
+              </div>
+            )}
             <SuperText className="text-super-sub">I make ideas happen.</SuperText>
             <Body>
               {'I\'m a software developer based in Toronto, Canada, specializing in AI and ML, ' +
@@ -22,6 +35,7 @@ const About = () => {
             </Body>
           </div>
         </div>
+        {!isMobile && (
         <div
           className="container-for-centering"
         >
@@ -37,11 +51,9 @@ const About = () => {
             }}
           />
         </div>
+        )}
       </div>
-      <div
-        className="container-for-centering"
-        style={{ width: '100vw' }}
-      >
+      <div className="container-for-centering">
         <div className="education">
           <Title>Education</Title>
           <div>
@@ -49,7 +61,7 @@ const About = () => {
             <SuperText className="text-super-sub">
               University of Toronto
             </SuperText>
-            <SuperText className="text-super-sub" style={{ fontSize: '32px' }}>
+            <SuperText className="text-super-sub">
               {'\'18 - \'22'}
             </SuperText>
           </div>
