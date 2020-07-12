@@ -37,6 +37,7 @@ $text-footer-m: 14px;
 }
 
 #root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
