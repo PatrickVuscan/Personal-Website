@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-bar" />
       <FooterText>
         {
-          'Created by Patrick Vuscan. Please send us suggestions or report bugs by '
+          'Created by Patrick Vuscan. Please send me suggestions or report bugs by '
         }
         <Link className="text-footer" to="/reportBug">
           clicking here

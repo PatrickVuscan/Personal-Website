@@ -16,7 +16,8 @@ const ReportBug = () => {
   const [pageError, setPageError] = useState(false);
 
   const validateEmail = () => {
-    const valid = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/.test(email);
+    const valid = email.length === 0 ||
+      /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/.test(email);
     setEmailError(!valid);
     return valid;
   };
@@ -28,6 +29,12 @@ const ReportBug = () => {
     return valid;
   };
 
+  const validatePage = () => {
+    const valid = page.length > 0;
+    setPageError(!valid);
+    return valid;
+  };
+
   const validateMessage = () => {
     const valid = message.length > 0;
     setMessageError(!valid);
@@ -36,21 +43,23 @@ const ReportBug = () => {
 
   const submitToDB = () => {
     firebase.database().ref('contacts').push({
-      email,
+      email: (email) || null,
       phoneNumber: (phoneNumber) || null,
+      page,
       message,
     });
   };
 
   const handleSubmitAccountInfo = (event) => {
     event.preventDefault();
-    if (validateEmail() && validatePhoneNumber() && validateMessage()) {
+    if (validateEmail() && validatePhoneNumber() && validateMessage() && validatePage()) {
       setSubmitted(true);
       submitToDB();
       return true;
     }
     validateEmail();
     validatePhoneNumber();
+    validatePage();
     validateMessage();
     return false;
   };
@@ -77,7 +86,6 @@ const ReportBug = () => {
                 onBlur={(e) => {
                   setEmail(e.target.value);
                 }}
-                // onKeyDown={(e) => { return e.key !== 'Enter'; }}
               />
             </label>
             { emailError && <ErrorMessage>Please enter a valid email!</ErrorMessage>}
@@ -89,7 +97,6 @@ const ReportBug = () => {
                 onBlur={(e) => {
                   setPhoneNumber(e.target.value);
                 }}
-                // onKeyDown={(e) => { return e.key !== 'Enter'; }}
               />
             </label>
             { phoneNumberError && <ErrorMessage>Please enter a valid phone number!</ErrorMessage>}
@@ -98,7 +105,7 @@ const ReportBug = () => {
               <select
                 id="page"
                 onSelect={(e) => {
-                  setEmail(e.target.value);
+                  setPage(e.target.value);
                 }}
               >
                 <option value="Home">Home/About</option>

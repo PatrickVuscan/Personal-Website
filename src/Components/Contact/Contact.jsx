@@ -58,6 +58,25 @@ const Contact = () => {
     <>
       <div className="container-for-centering">
         <div className="contact">
+          <div style={{ textAlign: 'center' }}>
+            <a href="https://www.linkedin.com/in/patrickvuscan/">
+              <img
+                alt="LinkedIn Logo"
+                src={`${process.env.PUBLIC_URL}/linkedIn.png`}
+                style={{
+                  width: '3rem',
+                  margin: 'auto',
+                }}
+              />
+            </a>
+            <Body style={{
+              textAlign: 'center',
+              lineHeight: '1.5em',
+            }}
+            >
+              Connect with me on LinkedIn!
+            </Body>
+          </div>
           <Title>Get in touch!</Title>
           <Body>
             {'I\'m always looking for new opportunities and exciting projects to take part in! ' +

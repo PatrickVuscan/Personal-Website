@@ -9,11 +9,12 @@ ContainerTitle.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-const SuperText = (props) => {
-  return <h2 className="text-super" {...props} />;
+const SuperText = ({ className, ...props }) => {
+  return <h2 className={`text-super ${className}`} {...props} />;
 };
 
 SuperText.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.string.isRequired,
 };
 
@@ -22,7 +23,7 @@ const Title = (props) => {
 };
 
 Title.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 const Subtitle = (props) => {
@@ -54,7 +55,7 @@ const Body = (props) => {
 };
 
 Body.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 const ErrorMessage = (props) => {

@@ -37,38 +37,40 @@ const Header = () => {
   return (
     <header className="header">
       <Logo />
-      {isNavVisible && (
-        <nav className="Nav">
-          <button
-            type="button"
-            className="text-header"
-            onClick={() => { handleClick('/about'); }}
-          >
-            About
-          </button>
-          <button
-            type="button"
-            className="text-header"
-            onClick={() => { handleClick('/experience'); }}
-          >
-            Experience
-          </button>
-          <button
-            type="button"
-            className="text-header"
-            onClick={() => { handleClick('/contact'); }}
-          >
-            Contact
-          </button>
-          <button
-            type="button"
-            className="text-header"
-            onClick={() => { onResumeClick(); }}
-          >
-            Resume
-          </button>
-        </nav>
-      )}
+      <nav className={`Nav ${isNavVisible ? 'show' : ''}`}>
+        {isNavVisible && (
+          <>
+            <button
+              type="button"
+              className="text-header"
+              onClick={() => { handleClick('/about'); }}
+            >
+              About
+            </button>
+            <button
+              type="button"
+              className="text-header"
+              onClick={() => { handleClick('/experience'); }}
+            >
+              Experience
+            </button>
+            <button
+              type="button"
+              className="text-header"
+              onClick={() => { handleClick('/contact'); }}
+            >
+              Contact
+            </button>
+            <button
+              type="button"
+              className="text-header"
+              onClick={() => { onResumeClick(); }}
+            >
+              Resume
+            </button>
+          </>
+        )}
+      </nav>
       {isMobile && (
         <button
           type="button"

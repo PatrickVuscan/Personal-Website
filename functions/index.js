@@ -43,7 +43,7 @@ exports.sendEmail = functions.database
 
 exports.bugReport = functions.database
   .ref('bugs/{bugId}')
-  .onCreate((snap, context) => {
+  .onCreate((snap) => {
     const formattedMessage =
       '<strong>A bug report from patrickvuscan.com has been sent!</strong>' +
       `<strong>From:</strong> ${snap.val().email || 'Not provided'}\n` +

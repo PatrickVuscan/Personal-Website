@@ -1,11 +1,8 @@
 import React from 'react';
 import '../../App.scss';
-import { useHistory } from 'react-router-dom';
 import { Body, Title, SuperText } from '../General/General';
 
 const Experience = () => {
-  const history = useHistory();
-
   const onResumeClick = () => {
     window.open(`${process.env.PUBLIC_URL}/resume.pdf`);
   };
@@ -20,17 +17,19 @@ const Experience = () => {
             Software Developer
           </SuperText>
           <Body>
-            {'Developed react web applications for Scotiabank\'s web and native campaign and ' +
-            'offer presentation.'}
+            {'As the only software developer intern brought into the Digital Factory during the ' +
+            'summer of 2020, I am ' +
+            'developing ReactJS web applications for Scotiabank\'s web and native campaign and ' +
+            'offer presentation. Using technologies such as Redux along with in-house libraries. '}
           </Body>
           <SuperText>catchUp</SuperText>
           <SuperText className="text-super-sub">
             Software Developer
           </SuperText>
           <Body>
-            {'Designed and developed a web application for a startup from scratch.\n\n' +
-            'Used technologies such as React, including all its latest features, React Routing,' +
-            'CSS and SASS for the front-end. For the back-end, used technologies such as ' +
+            {'Designing and developing a web application for a startup from scratch.\n\n' +
+            'Using technologies such as React, including all its latest features, React Routing, ' +
+            'CSS with SASS for the front-end. For the back-end, using technologies such as ' +
             'NodeJS and ExpressJS to create an API which interacts with an MSSQL database.'}
           </Body>
           <SuperText>NexJ Health Inc.</SuperText>
@@ -89,6 +88,14 @@ const Experience = () => {
       </div>
       <div className="container-for-centering">
         <div className="about-end">
+          <a href="https://github.com/PatrickVuscan">
+            <button
+              type="button"
+              className="about-end-button"
+            >
+              Check out my Github!
+            </button>
+          </a>
           <button
             type="button"
             className="about-end-button"
