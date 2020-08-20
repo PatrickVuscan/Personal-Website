@@ -104,8 +104,8 @@ const About = () => {
           <Body>
             {'Honours studies in Computer Science, with a focus in Artificial Intelligence and ' +
             'Machine Learning. Minor in German!\n\n' +
-            'Two time Dean\'s List scholar, and winner of the Mary Victoria Court Scholarship in ' +
-            '2019.\n\n' +
+            'Awarded the Mary Victoria Court Scholarship in 2019, the J. A. Surerus Memorial ' +
+            'Scholarship in 2020, and a two-time Dean’s List Scholar, in 2019 and 2020.\n\n' +
             'Member of the University of Toronto\'s exclusive Technology Leadership Initiative.'}
           </Body>
           <div>

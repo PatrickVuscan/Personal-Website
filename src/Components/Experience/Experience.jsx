@@ -17,20 +17,27 @@ const Experience = () => {
             Software Developer
           </SuperText>
           <Body>
-            {'As the only software developer intern brought into the Digital Factory during the ' +
-            'summer of 2020, I am ' +
-            'developing ReactJS web applications for Scotiabank\'s web and native campaign and ' +
-            'offer presentation. Using technologies such as Redux along with in-house libraries. '}
+            {'I was the only software developer intern brought into the Digital Factory ' +
+            'during the summer of 2020. I developed for the front-end of a web application ' +
+            'that manages Scotiabank’s web and native campaign and offer presentation, ' +
+            'using technologies such as ReactJS and Redux. Took ownership over regions of ' +
+            'the app. Wrote API endpoints in the NodeJS backend, wrote unit tests using ' +
+            'React’s Testing Library, and refactored code to modernize the application.\n\n' +
+            'Placed 1st out of more than 80 teams in the bank wide Intern Capstone project, ' +
+            'aimed to find new ways to increase customer acquisition across the bank. After ' +
+            'engaging with customers and managers across different business lines, I developed ' +
+            'a Figma prototype of an educational solution which could be built to work in ' +
+            'conjunction with existing Scotiabank technology and analytic tools'}
           </Body>
           <SuperText>catchUp</SuperText>
           <SuperText className="text-super-sub">
             Software Developer
           </SuperText>
           <Body>
-            {'Designing and developing a web application for a startup from scratch.\n\n' +
-            'Using technologies such as React, including all its latest features, React Routing, ' +
-            'CSS with SASS for the front-end. For the back-end, using technologies such as ' +
-            'NodeJS and ExpressJS to create an API which interacts with an MSSQL database.'}
+            {'Lead developer and designer in a start-up, catchUp, a note sharing service that ' +
+            'focuses on working with accessibility needs guidelines. Designed the application ' +
+            'and flows using Figma. Developing the Front-end using technologies such as ReactJS, ' +
+            'React Routing, to deliver a clean minimalist user experience.'}
           </Body>
           <SuperText>NexJ Health Inc.</SuperText>
           <SuperText className="text-super-sub">
