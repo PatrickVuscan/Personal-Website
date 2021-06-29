@@ -3,21 +3,7 @@ import '../../App.scss';
 import { useHistory } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { Body, Title, SuperText } from '../General/General';
-
-const sentences = [
-  'I make ideas happen.',
-  'I\'m a software developer.',
-  'I design UI experiences.',
-  'I develop applications.',
-  'I work on startups.',
-  'If you\'re still reading...',
-  'I guess I\'ll tell you more!',
-  'I love cooking.',
-  'I\'m really into music!',
-  'I\'m learning German!',
-  'I\'ve travelled to 22 countries!',
-  'And now... back to the start.',
-];
+import { descriptionSentences, education } from './content';
 
 const About = () => {
   const history = useHistory();
@@ -34,7 +20,7 @@ const About = () => {
     }, 2500);
     const interval = setInterval(() => {
       setShowText(true);
-      setTextIndex(textIndex => (textIndex + 1) % sentences.length);
+      setTextIndex(index => (index + 1) % descriptionSentences.length);
       setTimeout(() => {
         setShowText(false);
       }, 2500);
@@ -63,11 +49,11 @@ const About = () => {
               </div>
             )}
             <SuperText className={`text-super-sub fading ${showText ? '' : 'hidden'}`}>
-              {sentences[textIndex]}
+              {descriptionSentences[textIndex]}
             </SuperText>
             <Body>
-              {'I\'m a software developer based in Toronto, Canada, specializing in AI and ML, ' +
-              'but also designing and developing web applications!'}
+              {'I\'m a software developer based in Toronto, Canada, learning about AI and ML, ' +
+              'while specializing in web development!'}
             </Body>
           </div>
         </div>
@@ -93,33 +79,26 @@ const About = () => {
         <div className="education">
           <Title>Education</Title>
           <div>
-            <SuperText>HBSc. Computer Science</SuperText>
+            <SuperText>{education.uoft.title}</SuperText>
             <SuperText className="text-super-sub">
-              University of Toronto
+              {education.uoft.subtitle}
             </SuperText>
-            <SuperText className="text-super-sub">
+            {/* <SuperText className="text-super-sub">
               {'\'18 - \'22'}
-            </SuperText>
+            </SuperText> */}
           </div>
           <Body>
-            {'Honours studies in Computer Science, with a focus in Artificial Intelligence and ' +
-            'Machine Learning. Minor in German!\n\n' +
-            'Awarded the Mary Victoria Court Scholarship in 2019, the J. A. Surerus Memorial ' +
-            'Scholarship in 2020, and a two-time Dean’s List Scholar, in 2019 and 2020.\n\n' +
-            'Member of the University of Toronto\'s exclusive Technology Leadership Initiative.'}
+            {education.uoft.description}
           </Body>
           <div>
-            <SuperText>Technology Leadership Initiative</SuperText>
+            <SuperText>{education.tli.title}</SuperText>
             <SuperText className="text-super-sub">
-              University of Toronto
+              {education.tli.subtitle}
             </SuperText>
           </div>
           <Body>
-            {'Selected for the Technology Leadership Initiative, a specialized program that ' +
-            'offers industry integrated advanced learning, tailored leadership training, and ' +
-            'industry internship opportunities.\n\n' +
-            'As part of the Initiative, I developed an MVP for the Global Payments division ' +
-            'of Scotiabank, which you can demo '}
+            {education.tli.description}
+            {/* This is the little link I couldn't include more easily in content.js */}
             <a href="https://request-to-pay.herokuapp.com/">here!</a>
           </Body>
         </div>
