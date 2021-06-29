@@ -26,7 +26,7 @@ exports.sendEmail = functions.database
     const mailOptions = {
       from: gmailLogin,
       to: gmailLogin,
-      subject: 'Personal Email Contact Form Submission', // Subject line
+      subject: 'Contact Form Submission from Personal Website', // Subject line
       text: `${snap.val().message}`, // plain text body
       html: `<p style="white-space: pre-wrap">${formattedMessage}</p>`, // html body
     };
@@ -54,7 +54,7 @@ exports.bugReport = functions.database
     const mailOptions = {
       from: gmailLogin,
       to: gmailLogin,
-      subject: 'Personal Email Contact Form Submission', // Subject line
+      subject: 'Bug Form Submission from Personal Website', // Subject line
       text: `${snap.val().message}`, // plain text body
       html: `<p style="white-space: pre-wrap">${formattedMessage}</p>`, // html body
     };

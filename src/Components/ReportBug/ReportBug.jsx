@@ -7,7 +7,7 @@ const ReportBug = () => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
-  const [page, setPage] = useState('');
+  const [page, setPage] = useState('Home');
   const [submitted, setSubmitted] = useState(false);
 
   const [emailError, setEmailError] = useState(false);
@@ -42,7 +42,7 @@ const ReportBug = () => {
   };
 
   const submitToDB = () => {
-    firebase.database().ref('contacts').push({
+    firebase.database().ref('bugs').push({
       email: (email) || null,
       phoneNumber: (phoneNumber) || null,
       page,
@@ -104,7 +104,7 @@ const ReportBug = () => {
               <span>Page</span>
               <select
                 id="page"
-                onSelect={(e) => {
+                onChange={(e) => {
                   setPage(e.target.value);
                 }}
               >
