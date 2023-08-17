@@ -6,21 +6,25 @@ module.exports = {
   },
   extends: ['airbnb'],
   plugins: ['babel', 'import', 'jsx-a11y', 'react', 'react-hooks'],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
+    requireConfigFile: false,
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
   },
   rules: {
     'linebreak-style': 'off', // Don't play nicely with Windows.
 
-    'array-element-newline': ["error", "consistent"],
-    'array-bracket-newline': ["error", { "multiline": true }],
+    'array-element-newline': ['error', 'consistent'],
+    'array-bracket-newline': ['error', { multiline: true }],
 
-    'operator-linebreak': [2, "after"],
+    'operator-linebreak': [2, 'after'],
 
     'arrow-parens': 'off', // Incompatible with prettier
     'object-curly-newline': 'off', // Incompatible with prettier
@@ -39,7 +43,7 @@ module.exports = {
 
     'react/require-default-props': 'off', // airbnb use error
     'react/forbid-prop-types': 'off', // airbnb use error
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }], // airbnb is using .jsx
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'react/destructuring-assignment': 'off',
 
     'prefer-destructuring': 'off',
@@ -50,8 +54,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-spreading': 'off',
 
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
 
     'jsx-a11y/heading-has-content': ['off'],
     'jsx-a11y/anchor-is-valid': [
