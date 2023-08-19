@@ -43,6 +43,7 @@ a {
   color: inherit;
 }
 
+// Organizational Component CSS
 .sections {
   margin: 0;
   display: flex;
@@ -78,203 +79,7 @@ a {
   justify-content: center;
 }
 
-// This holds things within a template so that you can have multiple things follow each other
-%container {
-  display: flex; //or inline-flex?
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start; // or center, or space-between
-  align-items: stretch;
-  margin: 1rem 0 0 0;
-}
-
-.container {
-  @extend %container;
-  margin: 5vh 5vw;
-  justify-content: space-between;
-}
-
-%container-list {
-  @extend %container;
-  margin: 0 auto;
-  flex-direction: column;
-}
-
-.container-list {
-  @extend %container-list;
-
-  &-small {
-    @extend %container-list;
-    width: 32.3%;
-  }
-
-  &-medium {
-    @extend %container-list;
-    width: 64.6%;
-  }
-
-  &-large {
-    @extend %container-list;
-    width: 96.9%;
-  }
-
-  &-title {
-    margin: 0 0 0 1rem;
-  }
-
-  &-title-bar {
-    margin: 0;
-    background-color: $blue;
-    border-radius: $button-radius;
-    height: 0.5rem;
-  }
-
-}
-
-%container-row {
-  @extend %container;
-  height: 85vh;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.container-row {
-
-  // This is for the container row where the left side is a third of the screen
-  &-third {
-    @extend %container-row;
-
-    & > .container-row-left {
-      flex: 1;
-    }
-
-    & > .container-row-right {
-      flex: 2;
-    }
-
-  }
-
-  // This is for the container row where the left side is two thirds of the screen
-  &-two-thirds {
-    @extend %container-row;
-
-    & > .container-row-left {
-      flex: 2;
-    }
-
-    & > .container-row-right {
-      flex: 1;
-    }
-
-  }
-
-}
-
-.details-container {
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 0; // This lets text overflow work
-
-  & > %text {
-    margin: 0;
-  }
-
-  & > .text-details:first-of-type {
-    margin-top: auto;
-  }
-
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-
-  & > button {
-    margin: 0 1rem;
-  }
-
-  & > .text-header {
-    background-color: white;
-    border-radius: $button-radius;
-    border-width: 0;
-    outline: none;
-    cursor: pointer;
-  }
-
-  & > nav {
-    @extend .header;
-    margin: 0;
-    // Test
-    display: grid;
-    grid-area: nav;
-    grid-template-columns: repeat(4, auto);
-    align-items: center;
-    justify-items: center;
-  }
-
-  & > .burger {
-    @extend .text-header;
-    font-size: $text-title !important;
-    color: $green !important;
-    // Test
-    grid-area: burger;
-    justify-self: end;
-    transition: 0.1s;
-  }
-
-  & > .Nav {
-
-  }
-
-}
-
-@media screen and (min-width: 601px) {
-
-  .header {
-
-    & > button {
-      transition: transform 1s;
-    }
-
-    & > button:hover {
-      transform: scale(1.2);
-    }
-
-    & > .burger:active {
-      transform: scale(1.2);
-    }
-
-  }
-
-  .fading {
-    -webkit-transition: all 500ms ease-in;
-    -moz-transition: all 500ms ease-in;
-    -o-transition: all 500ms ease-in;
-    transition: all 500ms ease-in;
-    opacity: 1;
-  }
-
-  .hidden {
-    -webkit-transition: all 500ms ease-out;
-    -moz-transition: all 500ms ease-out;
-    -o-transition: all 500ms ease-out;
-    transition: all 500ms ease-out;
-    opacity: 0;
-  }
-
-  .hover {
-    transition: transform 1s;
-  }
-
-  .hover:hover {
-    transform: scale(1.1) translateX(1rem);
-  }
-}
-
+// Text CSS
 %text {
   font-weight: bold;
   text-align: left;
@@ -365,94 +170,7 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-
-  .about {
-
-    & > %text {
-      text-align: center;
-    }
-
-    & > .text-super {
-      margin-top: 1.5rem;
-      margin-bottom: 0;
-    }
-
-    & > .text-super-sub {
-      margin-bottom: $text-title;
-    }
-
-    & > .text-body {
-      width: unset;
-    }
-
-  }
-
-  .container {
-    margin: 0 5vw 5vh 5vw;
-  }
-
-  .header {
-    display: grid;
-    grid-template-areas: "logo burger" "nav nav";
-    justify-content: normal;
-
-    & > button.text-header {
-      background-color: $green;
-      color: white;
-      font-size: $text-body-m;
-    }
-
-    .Nav {
-      display: grid;
-      grid-area: nav;
-      grid-template-rows: repeat(2, auto);
-      grid-template-columns: none;
-      grid-row-gap: 1rem;
-
-      visibility: hidden;
-      opacity: 0;
-      height: 0;
-      padding: 0;
-      -webkit-transition: opacity 600ms ease, visibility ease 600ms;
-      -moz-transition: opacity 600ms ease, visibility ease 600ms;
-      -o-transition: opacity 600ms ease, visibility ease 600ms;
-      transition: opacity 600ms ease, visibility ease 600ms;
-
-      background: $green;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-
-    .show {
-      visibility: visible;
-      opacity: 1;
-      height: auto;
-      padding: 1rem 0;
-      -webkit-transition-delay: 0s;
-      -moz-transition-delay: 0s;
-      -o-transition-delay: 0s;
-      transition-delay: 0s;
-    }
-
-    & > button.burger {
-      display: inline;
-      grid-area: burger;
-      background-color: white;
-    }
-
-  }
-
-  .profile-picture {
-    margin: 1rem 0;
-    border-radius: 50%;
-    height: auto;
-    max-width: 100%;
-    max-height: 90vw;
-  }
-
   .text {
-
     &-super {
       font-size: $text-super-m;
     }
@@ -462,10 +180,6 @@ a {
     }
 
     &-title {
-      font-size: $text-title-m;
-    }
-
-    &-container-title {
       font-size: $text-title-m;
     }
 
@@ -489,67 +203,67 @@ a {
       font-size: $text-buttons-m;
     }
   }
-
-  body .work-experience {
-    padding: 0 5vw 5vh 5vw;
-  }
-
 }
 
-.work-experience {
-  padding: 5vh 5vw;
-  width: 90vw;
-  min-width: 250px;
+// Common Stylistic
+.green-background {
+  background-color: $green;
+}
+
+.information {
   border: none;
 
-  & > .text-super {
-    margin-top: $text-super-sub;
-    margin-bottom: 1rem;
+  & h1 {
+    margin-block: 1rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: $text-subtitle-m;
+    }
+
+    @media screen and (min-width: 601px) {
+      font-size: $text-subtitle;
+    }
   }
 
-  & > .text-super-sub {
-    margin-bottom: $text-super-sub;
+  & h2 {
+    text-transform: uppercase;
+    margin-block: 0.5rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: $text-footer-m;
+    }
+
+    @media screen and (min-width: 601px) {
+      font-size: $text-body;
+    }
   }
 
-  & > .text-title {
-    margin-bottom: 1rem;
+  & div:last-child p:last-child {
+    margin-bottom: 0;
   }
 
-  & > .text-body {
+  & .text-body {
     margin-bottom: 1rem;
-    line-height: 1.5em;
+    line-height: 1.25em;
+  }
+
+  & div {
+    @media screen and (min-width: 601px) {
+      margin-block: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
-.project-experience {
-  @extend .work-experience;
-
-  & > %text {
+.contrasting-colors {
+  & h1, h2, h3, p, span, %text {
     color: $light-gray;
   }
 
-  & > div .text-super {
-    margin-top: $text-super-sub;
-    margin-bottom: 1rem;
-    color: white;
-  }
-
-  & > div .text-super-sub {
-    margin-bottom: $text-super-sub;
-    margin-block-end: 1rem;
-    color: $light-gray;
-  }
-
-  & > div .text-super-sub:last-of-type {
-    margin-bottom: $text-title;
-  }
-
-  & > .text-title {
-    margin-bottom: 1rem;
-  }
-
-  & > .text-body {
-    margin-bottom: 1rem;
-    line-height: 1.5em;
+  & hr {
+    background-color: $light-gray;
   }
 }
