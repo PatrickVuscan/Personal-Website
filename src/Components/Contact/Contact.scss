@@ -8,14 +8,14 @@
   align-items: center;
   min-width: 250px;
 
-  // Size is 90vw until 500px wide
-  @media screen and (max-width: 500px) {
+  // Size is 90vw until 600px wide
+  @media screen and (max-width: 600px) {
     width: 90vw;
   }
 
-  // Once larger than 500px, scale at half screen size
-  @media screen and (min-width: 501px) {
-    width: clamp(450px, 50vw, 600px);
+  // Once larger than 600px, scale at half screen size
+  @media screen and (min-width: 601px) {
+    width: clamp(540px, 50vw, 600px);
   }
 }
 
@@ -70,12 +70,12 @@ form {
 
   min-width: 250px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     width: 90vw;
   }
 
-  @media screen and (min-width: 501px) {
-    width: clamp(450px, 50vw, 600px);
+  @media screen and (min-width: 601px) {
+    width: clamp(540px, 50vw, 600px);
   }
 
   input[type=text], textarea {
@@ -83,12 +83,12 @@ form {
 
     min-width: 250px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       width: 90vw;
     }
 
-    @media screen and (min-width: 501px) {
-      width: clamp(450px, 50vw, 600px);
+    @media screen and (min-width: 601px) {
+      width: clamp(540px, 50vw, 600px);
     }
   }
 
