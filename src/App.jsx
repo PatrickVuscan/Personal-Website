@@ -25,9 +25,14 @@ function App() {
 
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/PatrickVuscan/Personal-Website/master/src/data.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return Promise.reject(new Error(`Couldn't fetch data from Github Repo. Error code ${response.status}`));
+        }
+
+        return response.json();
+      })
       .then((fetchedData) => {
-        console.log(fetchedData);
         setData({
           ...fetchedData,
           loaded: true,

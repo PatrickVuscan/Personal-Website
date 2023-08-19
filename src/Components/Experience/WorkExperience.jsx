@@ -19,7 +19,9 @@ const WorkExperience = () => {
 
     experience.forEach((experienceItem, index) => {
       experienceNodes.push(
-        <div key={experienceItem.company}>
+        // Should be fine to use index here because the experienceItem array is unchanging
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index}>
           <Title>{experienceItem.company}</Title>
           <Subtitle>{experienceItem.role}</Subtitle>
           <Body>{experienceItem.description}</Body>
