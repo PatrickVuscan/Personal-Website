@@ -6,42 +6,45 @@ import {
   SuperText,
   Subtitle,
 } from "../General/General";
-import "./Education.scss";
+import "../../App.scss";
 import DataContext from "../../DataContext";
 
 const Education = () => {
   const { education } = useContext(DataContext);
-  const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+
+  const educationNodes = [];
+
+  if (Array.isArray(education)) {
+    const { length } = education;
+
+    education.forEach((educationItem, index) => {
+      educationNodes.push(
+        <div className="education-item">
+          <Title>{educationItem.title}</Title>
+          <Subtitle className="text-super-sub">
+            {educationItem.subtitle}
+          </Subtitle>
+          <Body>
+            {educationItem.description}
+          </Body>
+        </div>,
+      );
+
+      if (length > 1 && index < length - 1 && isMobile) {
+        educationNodes.push(
+          <hr />,
+        );
+      }
+    });
+  }
 
   return (
     <div className="green-background">
       <div className="center-content five-margin">
-        <div className="education">
+        <div className="information contrasting-colors">
           <SuperText>Education</SuperText>
-
-          <div className="education-item">
-            <Title>{education.uoft.title}</Title>
-            <Subtitle className="text-super-sub">
-              {education.uoft.subtitle}
-            </Subtitle>
-            <Body>
-              {education.uoft.description}
-            </Body>
-          </div>
-
-          {isMobile && <hr />}
-
-          <div className="education-item">
-            <Title>{education.tli.title}</Title>
-            <Subtitle className="text-super-sub">
-              {education.tli.subtitle}
-            </Subtitle>
-            <Body>
-              {education.tli.description}
-              {/* This is the little link I couldn't include more easily in content.js */}
-              <a href="https://request-to-pay.herokuapp.com/">here!</a>
-            </Body>
-          </div>
+          {educationNodes}
         </div>
       </div>
     </div>
