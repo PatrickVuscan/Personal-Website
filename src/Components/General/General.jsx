@@ -1,9 +1,5 @@
 import React from "react";
 
-const ContainerTitle = ({ children }) => {
-  return <p className="text-container-title">{children}</p>;
-};
-
 const SuperText = ({ className, children }) => {
   return <p className={`text-super ${className || ""}`}>{children}</p>;
 };
@@ -24,16 +20,10 @@ const ErrorMessage = ({ children }) => {
   return <p className="text-error">{children}</p>;
 };
 
-const Details = ({ children }) => {
-  return <p className="text-details">{children}</p>;
-};
-
 export {
-  ContainerTitle,
   SuperText,
   Title,
   Subtitle,
   Body,
   ErrorMessage,
-  Details,
 };
