@@ -43,7 +43,7 @@ module.exports = {
       ignoreUrls: true,
     }],
 
-    "no-console": ["error", {
+    "no-console": ["warn", {
       allow: ["warn", "error"],
     }],
     "no-alert": "error",
