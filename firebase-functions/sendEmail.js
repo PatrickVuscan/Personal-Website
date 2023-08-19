@@ -1,4 +1,5 @@
 const functions = require("firebase-functions");
+// eslint-disable-next-line import/no-unresolved
 const { defineSecret } = require("firebase-functions/params");
 const nodemailer = require("nodemailer");
 
@@ -60,8 +61,9 @@ const sendEmail = functions
           } catch (error) {
             console.log("Transporter Callback Error:", error);
 
-            return { error: error };
+            return { error };
           }
-        });
+        },
+    );
 
 module.exports = sendEmail;
