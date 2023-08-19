@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
-
 // Initialize Firebase
 import "./Firebase/SetupFirebase";
+
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Components
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
 import Experience from "./Components/Experience/Experience";
@@ -11,9 +13,9 @@ import Header from "./Components/General/Header";
 import ScrollToTop from "./Components/General/ScrollToTop";
 import DataContext from "./DataContext";
 
-import localData from "./data.json";
-
 import "./App.scss";
+
+import localData from "./data.json";
 
 function App() {
   const [data, setData] = useState({
@@ -22,7 +24,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/PatrickVuscan/Personal-Website/master/data.json")
+    fetch("https://raw.githubusercontent.com/PatrickVuscan/Personal-Website/master/src/data.json")
       .then((response) => response.json())
       .then((fetchedData) => {
         console.log(fetchedData);
@@ -32,8 +34,8 @@ function App() {
         });
       })
       .catch((error) => {
-        console.log(error);
-        console.log("Potentially stale data being used instead.", localData);
+        console.error(error);
+        console.warn("Potentially stale data being used instead.", localData);
         setData((prevData) => ({
           ...prevData,
           loaded: true,

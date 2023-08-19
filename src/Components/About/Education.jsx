@@ -13,32 +13,34 @@ const Education = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
 
   return (
-    <div className="center-content">
-      <div className="education">
-        <SuperText>Education</SuperText>
+    <div className="green-background">
+      <div className="center-content five-margin">
+        <div className="education">
+          <SuperText>Education</SuperText>
 
-        <div className="education-item">
-          <Title>{education.uoft.title}</Title>
-          <Subtitle className="text-super-sub">
-            {education.uoft.subtitle}
-          </Subtitle>
-          <Body>
-            {education.uoft.description}
-          </Body>
-        </div>
+          <div className="education-item">
+            <Title>{education.uoft.title}</Title>
+            <Subtitle className="text-super-sub">
+              {education.uoft.subtitle}
+            </Subtitle>
+            <Body>
+              {education.uoft.description}
+            </Body>
+          </div>
 
-        {isMobile && <hr />}
+          {isMobile && <hr />}
 
-        <div className="education-item">
-          <Title>{education.tli.title}</Title>
-          <Subtitle className="text-super-sub">
-            {education.tli.subtitle}
-          </Subtitle>
-          <Body>
-            {education.tli.description}
-            {/* This is the little link I couldn't include more easily in content.js */}
-            <a href="https://request-to-pay.herokuapp.com/">here!</a>
-          </Body>
+          <div className="education-item">
+            <Title>{education.tli.title}</Title>
+            <Subtitle className="text-super-sub">
+              {education.tli.subtitle}
+            </Subtitle>
+            <Body>
+              {education.tli.description}
+              {/* This is the little link I couldn't include more easily in content.js */}
+              <a href="https://request-to-pay.herokuapp.com/">here!</a>
+            </Body>
+          </div>
         </div>
       </div>
     </div>

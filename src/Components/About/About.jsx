@@ -84,7 +84,6 @@ const About = () => {
           Check out my work experience here!
         </button>
       </div>
-
     </div>
   );
 };

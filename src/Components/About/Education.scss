@@ -1,8 +1,10 @@
 @use '../../App';
 
-.education {
+.green-background {
   background-color: App.$green;
-  padding: 2rem 1rem;
+}
+
+.education {
   border: none;
 
   & h1, h2, h3, p, span, %text {
