@@ -212,6 +212,7 @@ a {
 
 .information {
   border: none;
+  width: 100%;
 
   & h1 {
     margin-block: 1rem;
@@ -256,6 +257,10 @@ a {
       }
     }
   }
+
+  & hr {
+    border: 0.5px solid $green;
+  }
 }
 
 .contrasting-colors {
@@ -264,6 +269,6 @@ a {
   }
 
   & hr {
-    background-color: $light-gray;
+    border: 0.5px solid $light-gray;
   }
 }

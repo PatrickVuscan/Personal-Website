@@ -1,28 +1,41 @@
-import { useContext, Fragment } from "react";
-import { Body, Title, SuperText } from "../General/General";
+import { useContext } from "react";
+import { useMediaQuery } from "react-responsive";
+import {
+  SuperText,
+  Title,
+  Subtitle,
+  Body,
+} from "../General/General";
 import DataContext from "../../DataContext";
 
 const WorkExperience = () => {
   const { experience } = useContext(DataContext);
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
   const experienceNodes = [];
 
   if (Array.isArray(experience)) {
-    experience.forEach((exp) => {
+    const { length } = experience;
+
+    experience.forEach((experienceItem, index) => {
       experienceNodes.push(
-        <Fragment key={exp.company}>
-          <SuperText>{exp.company}</SuperText>
-          <SuperText className="text-super-sub">{exp.role}</SuperText>
-          <Body>{exp.description}</Body>
-        </Fragment>,
+        <div key={experienceItem.company}>
+          <Title>{experienceItem.company}</Title>
+          <Subtitle>{experienceItem.role}</Subtitle>
+          <Body>{experienceItem.description}</Body>
+        </div>,
       );
+
+      if (length > 1 && index < length - 1 && isMobile) {
+        experienceNodes.push(<hr />);
+      }
     });
   }
 
   return (
-    <div className="center-content">
-      <div className="work-experience">
-        <Title>Work Experience</Title>
+    <div className="center-content five-margin">
+      <div className="information">
+        <SuperText>Work Experience</SuperText>
         {experienceNodes}
       </div>
     </div>

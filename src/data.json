@@ -16,7 +16,7 @@
     {
       "title": "Technology Leadership Initiative",
       "subtitle": "University of Toronto",
-      "description": "Selected for the Technology Leadership Initiative, a elite admission-based program, specializing in industry integrated learning, tailored leadership training, and valuable training from professionals.\n\n As part of the Initiative, I developed an MVP for the Global Payments division of Scotiabank, which you can demo "
+      "description": "Selected for the Technology Leadership Initiative, a elite admission-based program, specializing in industry integrated learning, tailored leadership training, and valuable training from professionals.\n\nAs part of the Initiative, I developed an MVP for the Global Payments division of Scotiabank, which you can demo "
     }
   ],
   "experience": [
@@ -56,16 +56,16 @@
       "description": "Developed a web and native Android and iOS applications for NexJ Health Inc's patient-facing healthcare platform as a full stack developer.\n\nBuilt new user functionality and features, while working on the application's front-end UI through a custom in-house framework in JavaScript, creating back-end services with Node.js, and interacting with the MongoDB database under a Mongoose schema. Worked on the deployment of the web application into native applications through Adobe PhoneGap."
     }
   ],
-  "projects": [
-    {
+  "projects": {
+    "scotiabank": {
       "name": "Scotiabank MVP Web Application",
-      "collab": "Technology Leaderhip Initiatve x Scotiabank Collaboration",
+      "collab": "Technology Leadership Initiative x Scotiabank Collaboration",
       "description": "Developed a reactive prototype for Scotiabank's Global Payments division, mocking Interac's Request to Pay feature for businesses, to reduce fees/overhead costs for immediate ROI.\n\nDeveloped a customer and internal facing application with React.js, for which I created REST APIs for back-end services with Express.js in TypeScript."
     },
-    {
+    "personalWebsite": {
       "name": "This Website!",
       "collab": "Stand alone project",
       "description": "Created this website from the ground up, using technologies such as React, React Router, all of the latest React Hooks, entirely custom CSS, and Firebase for the back-end."
     }
-  ]
+  }
 }
