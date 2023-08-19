@@ -20,21 +20,15 @@ const Education = () => {
 
     education.forEach((educationItem, index) => {
       educationNodes.push(
-        <div className="education-item">
+        <div key={educationItem.title}>
           <Title>{educationItem.title}</Title>
-          <Subtitle className="text-super-sub">
-            {educationItem.subtitle}
-          </Subtitle>
-          <Body>
-            {educationItem.description}
-          </Body>
+          <Subtitle>{educationItem.subtitle}</Subtitle>
+          <Body>{educationItem.description}</Body>
         </div>,
       );
 
       if (length > 1 && index < length - 1 && isMobile) {
-        educationNodes.push(
-          <hr />,
-        );
+        educationNodes.push(<hr />);
       }
     });
   }
