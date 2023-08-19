@@ -1,85 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-const ContainerTitle = (props) => {
-  return <h1 className="text-container-title" {...props} />;
+const ContainerTitle = ({ children }) => {
+  return <p className="text-container-title">{children}</p>
 };
 
-ContainerTitle.propTypes = {
-  children: PropTypes.string.isRequired,
+const SuperText = ({ className, children }) => {
+  return <p className={`text-super ${className || ""}`}>{children}</p>
 };
 
-const SuperText = ({ className, ...props }) => {
-  return <h2 className={`text-super ${className}`} {...props} />;
+const Title = ({ children }) => {
+  return <h1 className="text-title">{children}</h1>
 };
 
-SuperText.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.string.isRequired,
+const Subtitle = ({ children }) => {
+  return <h2 className="text-subtitle">{children}</h2>
 };
 
-const Title = (props) => {
-  return <h2 className="text-title" {...props} />;
+const Body = ({ children }) => {
+  return <p className="text-body">{children}</p>
 };
 
-Title.propTypes = {
-  children: PropTypes.any.isRequired,
+const ErrorMessage = ({ children }) => {
+  return <p className="text-error">{children}</p>
 };
 
-const Subtitle = (props) => {
-  return <h3 className="text-subtitle" {...props} />;
-};
-
-Subtitle.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const Professor = (props) => {
-  return <p className="text-details" {...props} />;
-};
-
-Professor.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const Lecture = (props) => {
-  return <p className="text-details" {...props} />;
-};
-
-Lecture.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const Body = (props) => {
-  return <p className="text-body" {...props} />;
-};
-
-Body.propTypes = {
-  children: PropTypes.any.isRequired,
-};
-
-const ErrorMessage = (props) => {
-  return <p className="text-error" {...props} />;
-};
-
-ErrorMessage.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const Details = (props) => {
-  return <p className="text-details" {...props} />;
-};
-
-Details.propTypes = {
-  children: PropTypes.string.isRequired,
-};
-
-const FooterText = (props) => {
-  return <p className="text-footer" {...props} />;
-};
-
-FooterText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
+const Details = ({ children }) => {
+  return <p className="text-details">{children}</p>
 };
 
 export {
@@ -90,5 +36,4 @@ export {
   Body,
   ErrorMessage,
   Details,
-  FooterText,
 };

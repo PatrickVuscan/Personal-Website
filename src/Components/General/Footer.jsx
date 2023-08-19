@@ -1,20 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FooterText } from './General';
+import "./Footer.scss";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-bar" />
-      <FooterText>
-        {
-          'Created by Patrick Vuscan. Please send me suggestions or report bugs by '
-        }
-        <Link className="text-footer" to="/reportBug">
-          clicking here
-        </Link>
-        !
-      </FooterText>
+      <p className="text-footer">Created by Patrick Vuscan. 2023.</p>
     </div>
   );
 };
