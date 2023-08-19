@@ -7,15 +7,17 @@ const WorkExperience = () => {
 
   const experienceNodes = [];
 
-  experience.forEach((exp) => {
-    experienceNodes.push(
-      <Fragment key={exp.company}>
-        <SuperText>{exp.company}</SuperText>
-        <SuperText className="text-super-sub">{exp.role}</SuperText>
-        <Body>{exp.description}</Body>
-      </Fragment>,
-    );
-  });
+  if (Array.isArray(experience)) {
+    experience.forEach((exp) => {
+      experienceNodes.push(
+        <Fragment key={exp.company}>
+          <SuperText>{exp.company}</SuperText>
+          <SuperText className="text-super-sub">{exp.role}</SuperText>
+          <Body>{exp.description}</Body>
+        </Fragment>,
+      );
+    });
+  }
 
   return (
     <div className="center-content">
