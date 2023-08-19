@@ -1,3 +1,5 @@
+import "./CallToActionButtons.scss";
+
 const CallToActionButtons = () => {
   const onResumeClick = () => {
     window.open(`${process.env.PUBLIC_URL}/resume.pdf`);
@@ -8,7 +10,7 @@ const CallToActionButtons = () => {
   };
 
   return (
-    <div className="center-content about-page__call-to-action-buttons">
+    <div className="center-content buttons">
       <button
         type="button"
         className="call-to-action-button"
