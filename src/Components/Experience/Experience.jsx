@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 
-import { DataContext } from "../../App";
+import DataContext from "../../DataContext";
 import { Body, Title, SuperText } from "../General/General";
 
 import "../../App.scss";
@@ -14,13 +14,13 @@ const Experience = () => {
 
   const experienceNodes = [];
 
-  experience.forEach(exp => {
+  experience.forEach((exp) => {
     experienceNodes.push(
       <Fragment key={exp.company}>
         <SuperText>{exp.company}</SuperText>
         <SuperText className="text-super-sub">{exp.role}</SuperText>
         <Body>{exp.description}</Body>
-      </Fragment>
+      </Fragment>,
     );
   });
 

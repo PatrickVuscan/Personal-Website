@@ -1,72 +1,76 @@
 module.exports = {
+  parser: "@babel/eslint-parser",
+  parserOptions: {
+    ecmaVersion: 6,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: "module",
+    requireConfigFile: false,
+    babelOptions: {
+      babelrc: false,
+      configFile: false,
+      presets: ["@babel/preset-react"],
+    },
+  },
   env: {
     es6: true,
     browser: true,
     node: true,
   },
-  extends: ['airbnb'],
-  plugins: ['babel', 'import', 'jsx-a11y', 'react', 'react-hooks'],
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-    ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    babelOptions: {
-      presets: ['@babel/preset-react'],
-    },
-  },
+  extends: ["airbnb"],
+  plugins: ["babel", "jsx-a11y", "react", "react-hooks"],
   rules: {
-    'linebreak-style': 'off', // Don't play nicely with Windows.
+    quotes: ["error", "double"],
 
-    'array-element-newline': ['error', 'consistent'],
-    'array-bracket-newline': ['error', { multiline: true }],
+    "array-element-newline": ["error", "consistent"],
+    "array-bracket-newline": ["error", "consistent"],
 
-    'operator-linebreak': [2, 'after'],
+    "object-curly-spacing": ["error", "always", {
+      objectsInObjects: true,
+    }],
+    "object-property-newline": ["error", {
+      allowMultiplePropertiesPerLine: false,
+    }],
 
-    'arrow-parens': 'off', // Incompatible with prettier
-    'object-curly-newline': 'off', // Incompatible with prettier
-    'no-mixed-operators': 'off', // Incompatible with prettier
-    'arrow-body-style': 'off', // Not our taste?
-    'function-paren-newline': 'off', // Incompatible with prettier
-    'no-plusplus': 'off',
-    'space-before-function-paren': 0, // Incompatible with prettier
+    "operator-linebreak": ["error", "before"],
 
-    'max-len': ['error', 100, 2, { ignoreUrls: true }], // airbnb is allowing some edge cases
-    'no-console': 'error', // airbnb is using warn
-    'no-alert': 'error', // airbnb is using warn
+    "max-len": ["error", {
+      code: 120,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: false,
+      ignoreRegExpLiterals: true,
+      ignoreUrls: true,
+    }],
 
-    'no-param-reassign': 'off', // Not our taste?
-    radix: 'off', // parseInt, parseFloat radix turned off. Not my taste.
+    "no-console": ["error", {
+      allow: ["warn", "error"],
+    }],
+    "no-alert": "error",
 
-    'react/require-default-props': 'off', // airbnb use error
-    'react/forbid-prop-types': 'off', // airbnb use error
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
-    'react/destructuring-assignment': 'off',
+    "arrow-body-style": "off",
 
-    'prefer-destructuring': 'off',
+    "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
+    "react/prop-types": "off",
 
-    'react/no-find-dom-node': 'off', // I don't know
-    'react/no-did-mount-set-state': 'off',
-    'react/no-unused-prop-types': 'off', // Is still buggy
-    'react/jsx-one-expression-per-line': 'off',
-    'react/jsx-props-no-spreading': 'off',
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
 
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
-
-    'jsx-a11y/heading-has-content': ['off'],
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      { components: ['Link'], specialLink: ['to'] },
+    "jsx-a11y/heading-has-content": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        components: ["Link"],
+        specialLink: ["to"],
+      },
     ],
-    'jsx-a11y/label-has-for': [
+    "jsx-a11y/label-has-for": [
       2,
       {
         required: {
-          every: ['id'],
+          every: ["id"],
         },
       },
     ], // for nested label htmlFor error

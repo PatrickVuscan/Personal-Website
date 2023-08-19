@@ -25,8 +25,8 @@ const Contact = () => {
   };
 
   const validatePhoneNumber = () => {
-    const valid = phoneNumber.length === 0 ||
-      /^(\+?\d{1,3})?[-. ]?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/.test(phoneNumber);
+    const valid = phoneNumber.length === 0
+      || /^(\+?\d{1,3})?[-. ]?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/.test(phoneNumber);
     setPhoneNumberError(!valid);
     return valid;
   };
@@ -44,16 +44,16 @@ const Contact = () => {
       message,
     })
       .then((result) => {
-        const data = result.data;
-        const message = data.message;
+        const { data } = result;
+        const { message: resultMessage } = data;
         console.log(result);
         console.log(data);
-        console.log(message);
+        console.log(resultMessage);
       })
       .catch((e) => {
         console.error(e);
       });
-  }
+  };
 
   const handleSubmitAccountInfo = (event) => {
     event.preventDefault();
@@ -85,7 +85,7 @@ const Contact = () => {
               onBlur={(e) => {
                 setEmail(e.target.value);
               }}
-              onKeyDown={(e) => { return e.key !== "Enter"; }}
+              onKeyDown={(e) => e.key !== "Enter"}
             />
           </label>
 
@@ -99,7 +99,7 @@ const Contact = () => {
               onBlur={(e) => {
                 setPhoneNumber(e.target.value);
               }}
-              onKeyDown={(e) => { return e.key !== "Enter"; }}
+              onKeyDown={(e) => e.key !== "Enter"}
             />
           </label>
 
@@ -120,7 +120,7 @@ const Contact = () => {
           <button className="text-button centered" type="submit">Send</button>
         </form>
 
-        {submitted && <Body>{"Sent! I'll get back to you soon :)"}</Body>}
+        {submitted && <Body>Sent! I&apos;ll get back to you soon :)</Body>}
       </div>
     </div>
   );

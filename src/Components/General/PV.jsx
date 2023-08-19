@@ -7,7 +7,7 @@ const PV = () => {
 
   const navigateHome = () => {
     navigate("/");
-  }
+  };
 
   return (
     <button

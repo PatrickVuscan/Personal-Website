@@ -1,8 +1,11 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import {
+  useContext, useEffect, useRef, useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
-import { DataContext } from "../../App";
+import DataContext from "../../DataContext";
+
 import Education from "./Education";
 import { Body, Title, SuperText } from "../General/General";
 import ProfilePicture from "./ProfilePicture";
@@ -14,7 +17,7 @@ const About = () => {
   const {
     descriptionSentences,
     description,
-    loaded,
+    // loaded,
   } = useContext(DataContext);
   const navigate = useNavigate();
 
@@ -32,14 +35,14 @@ const About = () => {
     setTimeout(() => {
       setShowText(false);
     }, 2500);
-  }
+  };
 
   useEffect(() => {
     startTextFadeoutTimer();
 
     const interval = setInterval(() => {
       setShowText(true);
-      setTextIndex(index => (index + 1) % descriptionSentencesLength);
+      setTextIndex((index) => (index + 1) % descriptionSentencesLength);
       startTextFadeoutTimer();
     }, 3000);
 
@@ -70,21 +73,20 @@ const About = () => {
         {!isMobile && <ProfilePicture />}
       </div>
 
-      <Education/>
+      <Education />
 
       <div className="center-content">
-          <button
-            type="button"
-            className="next-page-button"
-            onClick={() => { navigate("/experience"); }}
-          >
-            Check out my work experience here!
-          </button>
-        </div>
+        <button
+          type="button"
+          className="next-page-button"
+          onClick={() => { navigate("/experience"); }}
+        >
+          Check out my work experience here!
+        </button>
+      </div>
 
     </div>
   );
 };
 
 export default About;
-
