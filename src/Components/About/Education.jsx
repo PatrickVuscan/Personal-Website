@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
-
-import DataContext from "../../DataContext";
 import {
-  Body, Title, SuperText, Subtitle,
+  Body,
+  Title,
+  SuperText,
+  Subtitle,
 } from "../General/General";
-
 import "./Education.scss";
+import DataContext from "../../DataContext";
 
 const Education = () => {
   const { education } = useContext(DataContext);

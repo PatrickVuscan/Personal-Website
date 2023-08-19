@@ -1,24 +1,29 @@
 import {
-  useContext, useEffect, useRef, useState,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
-import DataContext from "../../DataContext";
-
+// Components
 import Education from "./Education";
 import { Body, Title, SuperText } from "../General/General";
 import ProfilePicture from "./ProfilePicture";
 
+// CSS
 import "../../App.scss";
 import "./About.scss";
+
+import DataContext from "../../DataContext";
 
 const About = () => {
   const {
     descriptionSentences,
     description,
-    // loaded,
   } = useContext(DataContext);
+
   const navigate = useNavigate();
 
   // Revolving text
