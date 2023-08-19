@@ -1,0 +1,16 @@
+@use '../../App';
+
+.linked-in-logo {
+  width: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 1s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.linked-in-cta {
+  @extend .center-text;
+  margin-block: 1rem;
+}
