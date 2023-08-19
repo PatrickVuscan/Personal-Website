@@ -1,32 +1,25 @@
-@use '../../App';
+@use '../../App' as vars;
 
-.sections {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
+.about {
 
-%section {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  margin: 5vh 5vw;
-}
+  & > .text-super {
+    margin-top: vars.$text-super-sub;
+    margin-bottom: 1rem;
+  }
 
-.section-horizontal-flow {
-  @extend %section;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  & > .text-super-sub {
+    margin-bottom: vars.$text-super-sub;
+  }
 
-.section-vertical-flow {
-  @extend %section;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+  & > .text-title {
+    margin-bottom: 1rem;
+  }
 
-.five-margin {
-  margin: 5vh 5vw;
+  & > .text-body {
+    width: 50vw;
+    margin-bottom: 1rem;
+    line-height: 1.5em;
+  }
 }
 
 .next-page-button {
