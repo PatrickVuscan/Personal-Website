@@ -1,4 +1,4 @@
-@use "../../App";
+@use "../../App" as vars;
 
 // Layout of the contact contents
 .contact {
@@ -25,10 +25,10 @@
 %formTypedInput {
   // Remove default margins and set minimal padding
   margin: 0 auto;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 0.75rem;
 
   // Make it round and remove outlines from tabbing onto the field
-  border-radius: App.$border-radius;
+  border-radius: vars.$border-radius;
   border-width: 0;
   outline: none;
   -webkit-appearance: none;
@@ -37,11 +37,11 @@
   // Apply standard font sizes
   font-family: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: normal;
-  font-size: App.$text-body;
+  font-size: vars.$text-body;
 
   // Make it gray
-  background-color: App.$light-gray;
-  color: App.$dark-gray;
+  background-color: vars.$light-gray;
+  color: vars.$dark-gray;
 }
 
 // When a textfield is autofilled, it usually takes on default browser
@@ -58,8 +58,8 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   @extend %formTypedInput;
   -webkit-text-size-adjust: auto;
-  -webkit-text-fill-color: App.$dark-gray;
-  -webkit-box-shadow: 0 0 0 1000px App.$light-gray inset;
+  -webkit-text-fill-color: vars.$dark-gray;
+  -webkit-box-shadow: 0 0 0 1000px vars.$light-gray inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -107,5 +107,11 @@ form {
     &:last-of-type {
       padding-bottom: 1rem;
     }
+  }
+
+  button {
+    @extend .text-button;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

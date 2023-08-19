@@ -117,7 +117,7 @@ const Contact = () => {
 
           {messageError && <ErrorMessage>Please enter a message!</ErrorMessage>}
 
-          <button className="text-button centered" type="submit">Send</button>
+          <button type="submit">Send</button>
         </form>
 
         {submitted && <Body>Sent! I&apos;ll get back to you soon :)</Body>}

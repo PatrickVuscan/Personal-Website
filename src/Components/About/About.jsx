@@ -51,7 +51,11 @@ const About = () => {
       startTextFadeoutTimer();
     }, 3000);
 
-    return () => clearInterval(interval);
+    const clearFadeoutInterval = () => {
+      clearInterval(interval);
+    };
+
+    return clearFadeoutInterval;
   }, [descriptionSentencesLength]);
 
   return (
