@@ -1,6 +1,7 @@
 @use "../../App" as vars;
 
 .header-logo {
+  @extend %text;
   margin: 0 auto 0 2rem;
   padding: 0 0 0.35rem 0;
 
