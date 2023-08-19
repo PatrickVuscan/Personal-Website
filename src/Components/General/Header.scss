@@ -1,0 +1,119 @@
+@use "../../App" as vars;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  & > button {
+    margin: 0 1rem;
+  }
+
+  & > .text-header {
+    background-color: white;
+    border-radius: vars.$button-radius;
+    border-width: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  & > nav {
+    @extend .header;
+    margin: 0;
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-items: center;
+  }
+
+  & > .burger {
+    @extend .text-header;
+    font-size: vars.$text-title !important;
+    color: vars.$green !important;
+    grid-area: burger;
+    justify-self: end;
+    transition: 0.1s;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .header {
+    & > button {
+      transition: transform 1s;
+    }
+
+    & > button:hover {
+      transform: scale(1.2);
+    }
+
+    & > .burger:active {
+      transform: scale(1.2);
+    }
+
+  }
+
+  .hidden {
+    -webkit-transition: all 500ms ease-out;
+    -moz-transition: all 500ms ease-out;
+    -o-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    display: grid;
+    grid-template-areas: "logo burger" "nav nav";
+    justify-content: normal;
+
+    & > button.text-header {
+      background-color: vars.$green;
+      color: white;
+      font-size: vars.$text-body-m;
+    }
+
+    .Nav {
+      display: grid;
+      grid-area: nav;
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: none;
+      grid-row-gap: 1rem;
+
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      padding: 0;
+      -webkit-transition: opacity 600ms ease, visibility ease 600ms;
+      -moz-transition: opacity 600ms ease, visibility ease 600ms;
+      -o-transition: opacity 600ms ease, visibility ease 600ms;
+      transition: opacity 600ms ease, visibility ease 600ms;
+
+      background: vars.$green;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .show {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+      padding: 1rem 0;
+      -webkit-transition-delay: 0s;
+      -moz-transition-delay: 0s;
+      -o-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+
+    & > button.burger {
+      display: inline;
+      grid-area: burger;
+      background-color: white;
+    }
+
+  }
+}

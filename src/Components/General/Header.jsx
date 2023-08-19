@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 import PV from "./PV";
-
-import "../../App.scss";
+import "./Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
