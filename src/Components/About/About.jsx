@@ -33,7 +33,7 @@ const About = () => {
   const textIndexRef = useRef();
   textIndexRef.current = textIndex;
 
-  const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
   const titleText = `Hello world!${isMobile ? "\n" : ""} My name is`;
 
   const startTextFadeoutTimer = () => {
@@ -64,13 +64,13 @@ const About = () => {
         <div className="center-content">
           <div className="about">
             <Title>{titleText}</Title>
-            <SuperText className="hover">Patrick Vuscan</SuperText>
+            <SuperText className="hoverable">Patrick Vuscan</SuperText>
 
             {/* California Picture on Mobile */}
             { isMobile && <ProfilePicture />}
 
             {/* Revolving Text */}
-            <Title className={`text-super-sub fading ${!showText && "hidden"}`}>
+            <Title className={`fading ${!showText && "hidden"}`}>
               {descriptionSentences[textIndex]}
             </Title>
 
