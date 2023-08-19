@@ -1,26 +1,18 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-} from 'react-router-dom';
+import { createContext, useState, useEffect } from "react";
 
 // Initialize Firebase
 import "./Firebase/SetupFirebase";
+import About from "./Components/About/About";
+import Contact from "./Components/Contact/Contact";
+import Experience from "./Components/Experience/Experience";
+import Footer from "./Components/General/Footer";
+import Header from "./Components/General/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./Components/General/ScrollToTop";
 
-// React Components
-import Header from './Components/General/Header';
-import Footer from './Components/General/Footer';
-import About from './Components/About/About';
-import Contact from './Components/Contact/Contact';
-import Experience from './Components/Experience/Experience';
-import ScrollToTop from './Components/General/ScrollToTop';
-
-import './App.scss';
-
-// Import backup data
 import localData from "./data.json";
+
+import "./App.scss";
 
 export const DataContext = createContext();
 
@@ -50,21 +42,23 @@ function App() {
       });
   }, []);
 
-  const history = useHistory();
-
   return (
-    <Router history={history}>
-      <Header />
-      <ScrollToTop>
-        <Switch>
-          <Route exact path={['/', '/about']} render={() => <About />} />
-          <Route exact path="/experience" render={() => <Experience />} />
-          <Route exact path="/contact" render={() => <Contact />} />
-        </Switch>
-      </ScrollToTop>
-      <Footer />
-    </Router>
+    <DataContext.Provider value={data}>
+      <Router>
+        <Header />
+        <ScrollToTop />
+
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
+        <Footer />
+      </Router>
+    </DataContext.Provider>
   );
-};
+}
 
 export default App;
