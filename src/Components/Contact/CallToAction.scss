@@ -1,0 +1,11 @@
+@use '../../App';
+
+.contact-cta {
+  text-align: center;
+  margin-block: 1rem;
+}
+
+.contact-cta > .text-title {
+  color: App.$green;
+  margin-bottom: 1rem;
+}

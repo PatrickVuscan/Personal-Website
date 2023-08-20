@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
-const Logo = () => {
-  const history = useHistory();
-
-  return (
-    <button
-      type="button"
-      className="header-logo"
-      onClick={() => { history.push('/'); }}
-    >
-      pv
-    </button>
-  );
-};
+import PV from "./PV";
+import "./Header.scss";
 
 const Header = () => {
-  const history = useHistory();
-  const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
   const [isNavVisible, setNavVisibility] = useState(!isMobile);
 
   const onResumeClick = () => {
@@ -31,33 +20,33 @@ const Header = () => {
 
   const handleClick = (link) => {
     if (isMobile) toggleNav();
-    history.push(link);
+    navigate(link);
   };
 
   return (
     <header className="header">
-      <Logo />
-      <nav className={`Nav ${isNavVisible ? 'show' : ''}`}>
+      <PV />
+      <nav className={`Nav ${isNavVisible ? "show" : ""}`}>
         {isNavVisible && (
           <>
             <button
               type="button"
               className="text-header"
-              onClick={() => { handleClick('/about'); }}
+              onClick={() => { handleClick("/about"); }}
             >
               About
             </button>
             <button
               type="button"
               className="text-header"
-              onClick={() => { handleClick('/experience'); }}
+              onClick={() => { handleClick("/experience"); }}
             >
               Experience
             </button>
             <button
               type="button"
               className="text-header"
-              onClick={() => { handleClick('/contact'); }}
+              onClick={() => { handleClick("/contact"); }}
             >
               Contact
             </button>

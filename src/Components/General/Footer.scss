@@ -1,0 +1,25 @@
+@use "../../App";
+
+.footer {
+  padding: 1rem 0.5rem 0.25rem 0.5rem;
+}
+
+.footer-bar {
+  height: 0.5rem;
+  margin: 0 0 0.25rem 0;
+  background-color: App.$light-gray;
+  border-radius: App.$button-radius;
+}
+
+.text-footer {
+  color: App.$dark-gray;
+  text-align: center;
+
+  @media screen and (max-width: 600px) {
+    font-size: App.$text-footer-m;
+  }
+
+  @media screen and (min-width: 601px) {
+    font-size: App.$text-footer;
+  }
+}

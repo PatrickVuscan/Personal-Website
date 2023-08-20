@@ -1,0 +1,24 @@
+@use "../../App" as vars;
+
+.header-logo {
+  @extend %text;
+  margin: 0 auto 0 2rem;
+  padding: 0 0 0.35rem 0;
+
+  cursor: pointer;
+
+  font-size: 64px;
+  font-weight: bold;
+  color: vars.$green;
+  background-color: white;
+  border-width: 0;
+  outline: none;
+}
+
+@media screen and (max-width: 600px) {
+  button.header-logo {
+    margin: 0 auto 0 1rem;
+    grid-area: logo;
+    // height: 84px;
+  }
+}

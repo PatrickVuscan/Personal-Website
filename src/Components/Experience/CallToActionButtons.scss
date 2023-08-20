@@ -1,0 +1,11 @@
+@use '../../App';
+
+.center-content.buttons {
+  margin-top: 1rem;
+}
+
+.call-to-action-button {
+  @extend .text-button;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
