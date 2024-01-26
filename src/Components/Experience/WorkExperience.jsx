@@ -6,7 +6,7 @@ import {
   Subtitle,
   Body,
 } from "../General/General";
-import DataContext from "../../DataContext";
+import { DataContext } from "../../DataContext";
 
 const WorkExperience = () => {
   const { experience } = useContext(DataContext);

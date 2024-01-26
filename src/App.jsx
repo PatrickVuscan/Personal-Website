@@ -1,8 +1,16 @@
 // Initialize Firebase
 import "./Firebase/SetupFirebase";
 
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import {
+  DataContext,
+  useDataFetch,
+} from "./DataContext";
 
 // Components
 import About from "./Components/About/About";
@@ -11,42 +19,11 @@ import Experience from "./Components/Experience/Experience";
 import Footer from "./Components/General/Footer";
 import Header from "./Components/General/Header";
 import ScrollToTop from "./Components/General/ScrollToTop";
-import DataContext from "./DataContext";
 
 import "./App.scss";
 
-import localData from "./data.json";
-
 function App() {
-  const [data, setData] = useState({
-    ...localData,
-    loaded: false,
-  });
-
-  useEffect(() => {
-    fetch("https://raw.githubusercontent.com/PatrickVuscan/Personal-Website/master/src/data.json")
-      .then((response) => {
-        if (!response.ok) {
-          return Promise.reject(new Error(`Couldn't fetch data from Github Repo. Error code ${response.status}`));
-        }
-
-        return response.json();
-      })
-      .then((fetchedData) => {
-        setData({
-          ...fetchedData,
-          loaded: true,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-        console.warn("Potentially stale data being used instead.", localData);
-        setData((prevData) => ({
-          ...prevData,
-          loaded: true,
-        }));
-      });
-  }, []);
+  const data = useDataFetch();
 
   return (
     <DataContext.Provider value={data}>

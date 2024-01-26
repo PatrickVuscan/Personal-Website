@@ -16,7 +16,7 @@ import ProfilePicture from "./ProfilePicture";
 import "../../App.scss";
 import "./About.scss";
 
-import DataContext from "../../DataContext";
+import { DataContext } from "../../DataContext";
 
 const About = () => {
   const {

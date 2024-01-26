@@ -6,7 +6,7 @@ import {
   Subtitle,
   Body,
 } from "../General/General";
-import DataContext from "../../DataContext";
+import { DataContext } from "../../DataContext";
 
 // Due to the custom links, couldn't iterate over data.projects
 // TODO: implement solution for handling links specified within data.json

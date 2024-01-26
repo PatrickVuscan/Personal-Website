@@ -7,7 +7,7 @@ import {
   Subtitle,
 } from "../General/General";
 import "../../App.scss";
-import DataContext from "../../DataContext";
+import { DataContext } from "../../DataContext";
 
 const Education = () => {
   const { education } = useContext(DataContext);
